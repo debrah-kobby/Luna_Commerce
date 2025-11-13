@@ -135,6 +135,15 @@ header {
   font-size: 0.75rem;
   cursor: pointer;
 }
+.nav_bar_div_forShop li .sign-up-button-1 {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 18px;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
 
 .buttons_on_nav {
   margin-top: -0.7rem;
@@ -163,6 +172,14 @@ header {
   align-items: center;
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.main_page_copyright {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -363,8 +380,13 @@ header {
 /* TOP PICKS SECTION */
 .top-picks-section {
   padding: 1rem;
+  overflow: hidden;
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
+/* Headings */
 .top-picks-heading {
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
@@ -373,42 +395,55 @@ header {
 
 .first-top-picks-texts {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .first-top-pick-text {
   width: min(550px, 100%);
   font-size: clamp(1.5rem, 3vw, 2.6rem);
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
 .second-top-pick-text {
-  margin-left: auto;
   display: flex;
   align-items: center;
   width: min(400px, 100%);
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
+/* Image Slider Section */
 .images-div-in-top-picks {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+
+.slides-container {
   display: flex;
-  gap: 3rem;
-  justify-content: center;
-  margin-top: 0.4rem;
+  transition: transform 1s ease-in-out;
 }
 
-.images-div-in-top-picks img {
-  width: clamp(250px, 30vw, 400px);
-  border-radius: 13px;
-}
-
+/* Each Slide */
 .first-image-div-on-top-picks {
   position: relative;
+  flex: 0 0 100%; /* Each image takes up 100% of container width */
+  max-height: 500px; /* Limit height */
+  overflow: hidden;
 }
 
+.first-image-div-on-top-picks img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+/* Overlay Texts */
 .first-p-on-top-picks-images {
   position: absolute;
   top: 30%;
@@ -422,36 +457,34 @@ header {
 .date-on-top-picks-images {
   position: absolute;
   top: 5%;
-  left: 76%;
+  right: 5%;
   color: #ffffff;
 }
 
 .bordered-text-on-top-pick-image {
   position: absolute;
-  top: 80%;
+  bottom: 10%;
   left: 5%;
   display: flex;
-  padding: 0.3rem;
-  width: 120px;
+  padding: 0.3rem 0.6rem;
+  width: fit-content;
   border: 1px solid gray;
   color: rgb(184, 184, 184);
   border-radius: 15px;
   justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 .bordered-text-on-top-pick-image i {
   font-size: 0.4rem;
-  display: flex;
-  align-items: center;
+  margin-right: 0.4rem;
 }
 
 .bordered-text-on-top-pick-image p {
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
   font-size: 0.8rem;
 }
-
 /* NEW ARRIVALS */
 .newarrivalsonmainpage {
   margin-top: 2rem;
@@ -490,6 +523,9 @@ header {
 .item-card-on-main-page {
   width: clamp(220px, 25vw, 270px);
   position: relative;
+  background-color: rgb(230, 230, 230);
+  border-radius: 15px;
+  padding: 0.5rem;
 }
 
 .all-item-cards-on-main-page {
@@ -710,6 +746,67 @@ header {
 }
 
 /*SHOP HTML*/
+.header_for_shophtml {
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  background: rgba(158, 158, 158, 0.1);
+}
+.nav_bar_div_forShop ul {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
+.nav_bar_div_forShop li {
+  list-style: none;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.nav_bar_div_forShop li a {
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav_bar_div_forShop li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav_bar_div_forShop li a:hover::after {
+  transform: scaleX(1);
+}
+
+.first_nav_items {
+  margin-right: auto;
+}
+
+.second_nav_items {
+  margin-left: auto;
+}
+
+.nav_bar_div li .sign-up-button-1 {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 18px;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
 .shophtmlbanner {
   background-color: rgb(160, 160, 160);
 
@@ -802,6 +899,14 @@ header {
 .itemcardonshoppage {
   position: relative;
   width: 220px;
+}
+.itemcardonshoppage img {
+  position: absolute;
+  top: 3%;
+  left: 15%;
+  border-radius: 7px;
+  width: 130px;
+  cursor: pointer;
 }
 .loveicononfeatureditems {
   position: absolute;
