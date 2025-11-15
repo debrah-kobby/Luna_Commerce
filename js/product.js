@@ -1,6 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
   const productData = JSON.parse(localStorage.getItem("selectedProduct"));
 
+  const details = document.querySelector(".detailsfordeliveryreturnsonPRP");
+  const modal = document.querySelector(".modal_for_details_of_return_policy");
+  const closeModal = document.querySelector(
+    ".clost-button-for-return-policy-modal i"
+  );
+  const decrementonPRP = document.querySelector(".decrementonPRP");
+  const incrememntonPRP = document.querySelector(".incrememntonPRP");
+  const numberDisplay = document.querySelector(".increordecrenumber");
+  let count = 0;
+  function numberOfItems() {
+    numberDisplay.textContent = count;
+  }
+  incrememntonPRP.addEventListener("click", () => {
+    if (count < 12) count++;
+    numberOfItems();
+  });
+  decrementonPRP.addEventListener("click", () => {
+    if (count > 0) count--;
+    numberOfItems();
+  });
+
+  details.addEventListener("click", () => {
+    modal.style.display = "block";
+    console.log("Details Clicked");
+  });
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+    console.log("Modal Closed");
+  });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
   if (!productData) {
     document.body.innerHTML =
       "<h2 style='text-align:center;margin-top:50px;'>No product selected.</h2>";
@@ -16,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(
     ".largeboldpricesonPRP"
   ).textContent = `$${productData.price}`;
-  document.querySelector(".itemdescriptiononitemcardSh").textContent =
-    productData.description;
+  /* document.querySelector(".itemdescriptiononitemcardSh").textContent =
+    productData.description; */
 
   // Generate random rating count
   const ratingElement = document.querySelector(".starsonPRP p");

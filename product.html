@@ -11,7 +11,7 @@
     />
     <title>Luna Commerce</title>
   </head>
-  <body>
+  <body class="product_html_body_tag_for_positioning">
     <!--  <div class="loader-container">
       <lottie-player
         src="assets/LunaBigger.json"
@@ -27,7 +27,7 @@
       <header>
         <div class="nav_bar_div first_nav_items">
           <ul>
-            <li><a href="#">SHOP</a></li>
+            <li><a href="shop.html">SHOP</a></li>
             <li><a href="#mensection">MEN</a></li>
             <li><a href="#womensection">WOMEN</a></li>
             <li><a href="#trendingsection">TRENDING</a></li>
@@ -96,10 +96,10 @@
             <div class="smallhrrulleronPRP"></div>
             <div class="incdec-and-aitemsleft-PRP">
               <div class="incrementofnumberofitemsonPRP">
-                <span class="decrementonPRP"
+                <span class="decrementonPRP" style="cursor: pointer"
                   ><i class="fa-solid fa-minus"></i></span
                 ><span class="increordecrenumber">0</span>
-                <span class="incrememntonPRP"
+                <span class="incrememntonPRP" style="cursor: pointer"
                   ><i class="fa-solid fa-plus"></i
                 ></span>
               </div>
@@ -158,8 +158,80 @@
           <button class="addtocardbuttononitemcardSh">Add to Cart</button>
         </div>
       </section>
+      <section
+        class="modal_for_details_of_return_policy"
+        id="overlay_for_modal"
+      >
+        <div class="modal_div_itself">
+          <div class="headings_for_return_policy">
+            <div class="return_policy_heading">
+              <i class="fa-solid fa-car"></i>Return Policy
+            </div>
+
+            <div
+              class="clost-button-for-return-policy-modal"
+              style="cursor: pointer"
+            >
+              <i class="fa-solid fa-x"></i>
+            </div>
+          </div>
+          <div class="first_paragraph_for_return_policy">
+            <p>
+              You may return items within 7 days of delivery. Returned items
+              must be <strong>unused, unworn, unwashed</strong>, and must
+              include all original tags and <strong>packaging</strong>.
+            </p>
+          </div>
+          <div class="non-returnable-items-return-policy">
+            <p>
+              <strong>Non-returnable items</strong>: sale items, underwear,
+              swimwear, and any item damaged through use or wear.
+            </p>
+          </div>
+          <div class="non-returnable-items-return-policy">
+            <p>
+              To start a return, contact us at
+              <span class="underlined-highlighted"
+                >lunacommerce@support.com</span
+              >
+              with your order number. Once the item is received and inspected,
+              refunds are issued either as store credit or to your original
+              payment method. Shipping fees are not refundable unless the item
+              arrived damaged or incorrect.
+            </p>
+          </div>
+          <div class="non-returnable-items-return-policy">
+            <p>
+              For <strong>defective</strong> or wrong items, notify us within 48
+              hours, and we will replace them at no cost.
+            </p>
+          </div>
+          <div class="non-returnable-items-return-policy">
+            <p>
+              We reserve the right to refuse returns that do not meet our
+              conditions. Items sent back without prior approval will not be
+              accepted.
+            </p>
+          </div>
+          <div class="non-returnable-items-return-policy">
+            <p><strong>For all return or exchange issues:</strong></p>
+            <ol style="margin-left: 1rem">
+              <li>
+                Email:
+                <span class="underlined-highlighted"
+                  >lunacommerce@support.com</span
+                >
+              </li>
+              <li>
+                Phone/WhatsApp:
+                <span class="underlined-highlighted">+233 457 344 8990</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <script src="js/product.js"></script>
+    <script type="module" src="js/product.js"></script>
   </body>
 </html>
