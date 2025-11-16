@@ -26,7 +26,9 @@ input {
   letter-spacing: 1px;
   padding: 0.2rem;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: rgba(219, 219, 219, 0.1);
   backdrop-filter: blur(6px);
@@ -133,6 +135,15 @@ header {
   font-size: 0.75rem;
   cursor: pointer;
 }
+.nav_bar_div_forShop li .sign-up-button-1 {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 18px;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
 
 .buttons_on_nav {
   margin-top: -0.7rem;
@@ -161,6 +172,14 @@ header {
   align-items: center;
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.main_page_copyright {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -223,6 +242,7 @@ header {
 .model-image-1-n-homepage {
   margin-right: auto;
   align-self: flex-start;
+  margin-top: 0.35rem;
 }
 
 .video-on-homepage {
@@ -247,7 +267,7 @@ header {
 }
 
 /* SECOND PAGE - LIFESTYLE SECTION */
-.second-page {
+/* .second-page {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -308,13 +328,65 @@ header {
 
 .first-second-page-text {
   top: 70%;
+} */
+
+/*SECOND PAGE MOD */
+.second-page {
+  height: 100vh;
+  margin-top: -1rem;
+  background-color: white;
+  position: relative;
+}
+.biglifestyletext {
+  background-color: rgb(122, 122, 122);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+.biglifestyletext p {
+  font-size: 4rem;
+  letter-spacing: 20px;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  /* animation: slideText 10s linear infinite;
+  white-space: nowrap; */
 }
 
+.lienenJruler {
+  position: absolute;
+  width: 500px;
+  height: 2px;
+  background-color: black;
+  top: 55%;
+  left: 23%;
+  border-radius: 7px;
+}
+.toplookbookconnection {
+  position: absolute;
+  top: 40%;
+  left: 65%;
+}
+.toplookbookconnection h2 {
+  font-size: 3.2rem;
+}
+.toplookbookconnection p {
+  border: 1px solid black;
+  padding: 0.7rem;
+  width: 120px;
+}
 /* TOP PICKS SECTION */
 .top-picks-section {
   padding: 1rem;
+  overflow: hidden;
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
+/* Headings */
 .top-picks-heading {
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
@@ -323,42 +395,55 @@ header {
 
 .first-top-picks-texts {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .first-top-pick-text {
   width: min(550px, 100%);
   font-size: clamp(1.5rem, 3vw, 2.6rem);
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
 .second-top-pick-text {
-  margin-left: auto;
   display: flex;
   align-items: center;
   width: min(400px, 100%);
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
 }
 
+/* Image Slider Section */
 .images-div-in-top-picks {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+
+.slides-container {
   display: flex;
-  gap: 3rem;
-  justify-content: center;
-  margin-top: 0.4rem;
+  transition: transform 1s ease-in-out;
 }
 
-.images-div-in-top-picks img {
-  width: clamp(250px, 30vw, 400px);
-  border-radius: 13px;
-}
-
+/* Each Slide */
 .first-image-div-on-top-picks {
   position: relative;
+  flex: 0 0 100%; /* Each image takes up 100% of container width */
+  max-height: 500px; /* Limit height */
+  overflow: hidden;
 }
 
+.first-image-div-on-top-picks img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+/* Overlay Texts */
 .first-p-on-top-picks-images {
   position: absolute;
   top: 30%;
@@ -372,36 +457,34 @@ header {
 .date-on-top-picks-images {
   position: absolute;
   top: 5%;
-  left: 76%;
+  right: 5%;
   color: #ffffff;
 }
 
 .bordered-text-on-top-pick-image {
   position: absolute;
-  top: 80%;
+  bottom: 10%;
   left: 5%;
   display: flex;
-  padding: 0.3rem;
-  width: 120px;
+  padding: 0.3rem 0.6rem;
+  width: fit-content;
   border: 1px solid gray;
   color: rgb(184, 184, 184);
   border-radius: 15px;
   justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 .bordered-text-on-top-pick-image i {
   font-size: 0.4rem;
-  display: flex;
-  align-items: center;
+  margin-right: 0.4rem;
 }
 
 .bordered-text-on-top-pick-image p {
   font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
   font-size: 0.8rem;
 }
-
 /* NEW ARRIVALS */
 .newarrivalsonmainpage {
   margin-top: 2rem;
@@ -440,6 +523,9 @@ header {
 .item-card-on-main-page {
   width: clamp(220px, 25vw, 270px);
   position: relative;
+  background-color: rgb(230, 230, 230);
+  border-radius: 15px;
+  padding: 0.5rem;
 }
 
 .all-item-cards-on-main-page {
@@ -657,4 +743,673 @@ header {
   to {
     transform: translateX(100%);
   }
+}
+
+/*SHOP HTML*/
+.header_for_shophtml {
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  background: rgba(158, 158, 158, 0.1);
+}
+.nav_bar_div_forShop ul {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
+.nav_bar_div_forShop li {
+  list-style: none;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.nav_bar_div_forShop li a {
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav_bar_div_forShop li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav_bar_div_forShop li a:hover::after {
+  transform: scaleX(1);
+}
+
+.first_nav_items {
+  margin-right: auto;
+}
+
+.second_nav_items {
+  margin-left: auto;
+}
+
+.nav_bar_div li .sign-up-button-1 {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 18px;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.shophtmlbanner {
+  /* background-color: rgb(160, 160, 160); */
+  background: linear-gradient(
+    to left,
+    rgb(54, 54, 54),
+    rgb(133, 133, 133),
+    rgb(36, 3, 128)
+  );
+  height: 230px;
+  display: flex;
+  margin: 1rem;
+  border-radius: 15px;
+  position: relative;
+  padding: 1rem;
+}
+.grabupto50 {
+  position: absolute;
+  font-size: 2rem;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  width: 350px;
+  top: 15%;
+  left: 5%;
+}
+.buynowonbanner {
+  position: absolute;
+  padding: 0.4rem;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 60%;
+  left: 6%;
+  border-radius: 15px;
+  border: none;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.shoeimageonbanner1 {
+  position: absolute;
+  left: 70%;
+  top: 1%;
+}
+.shoeimageonbanner1 img {
+  border-radius: 15px;
+}
+
+.buttonsundershopbanner {
+  margin: 1rem;
+}
+
+.button1underbanner {
+  padding: 0.4rem;
+  width: 80px;
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(197, 197, 197);
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.featureditemssection,
+.trendingsectioninshop,
+.menssectiononshophtml,
+.womensssectiononshophtml,
+.accessoriessectiononshophtml,
+.shoessectiononshophtml,
+.jacketsssectiononshophtml {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.featured-items-title p,
+.trendingsectiontitleonSh,
+.mensectiontititleSh,
+.womenssectiontititleSh,
+.assesoriessectiontititleSh,
+.jacketsectiontititleSh,
+.shoesectiontititleSh {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.4rem;
+}
+.itembackgroundonitemcardSh {
+  width: 220px;
+  height: 200px;
+  background-color: rgb(233, 233, 233);
+  border-radius: 7px;
+}
+.itemcardonshoppage {
+  position: relative;
+  width: 220px;
+}
+.itemcardonshoppage img {
+  position: absolute;
+  top: 3%;
+  left: 15%;
+  border-radius: 7px;
+  width: 130px;
+  cursor: pointer;
+}
+.loveicononfeatureditems {
+  position: absolute;
+  top: 2%;
+  left: 83%;
+}
+.loveicononfeatureditems i {
+  font-size: 1.1rem;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.nameandpricedivonitemcardSh {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+.itempriceonitemcardsh {
+  display: flex;
+  margin-left: auto;
+}
+.itemnameonitemcardSh {
+  margin-right: auto;
+}
+.itemdescriptiononitemcardSh {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+}
+.staricononitemcardSh {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+.staricononitemcardSh p {
+  font-family: "Poppins", sans-serif;
+  margin-left: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.staricononitemcardSh i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blue;
+}
+
+.addtocardbuttononitemcardSh {
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 120px;
+  background: transparent;
+  margin-top: 0.3rem;
+}
+
+.overalldivforfeaturesitemcards,
+.trendingitemsonShoveralldiv,
+.overalldivformensitemscardsSh,
+.overalldivforwomenssitemscardsSh,
+.overalldivforaccessoriessitemscardsSh,
+.overalldivforshoesitemscardsSh,
+.overalldivforjacketsitemscardsSh {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+/*PRODUCT HTML*/
+.imageandsidenotesonPRP {
+  display: flex;
+  gap: 3rem;
+  padding-left: 5rem;
+  padding-right: 3rem;
+}
+.bigimageonPRPbackground {
+  background-color: rgb(197, 197, 197);
+  width: 400px;
+  height: 450px;
+  border-radius: 7px;
+  position: relative;
+}
+
+.bigimageonPRP {
+  width: 100%;
+  height: 100%;
+}
+
+.itemimageonPRP {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 7px;
+}
+
+.mainitemtitleforPRP {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.supportingtitlesentenceonPRP {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.8rem;
+  width: 300px;
+  margin-top: 0.3rem;
+}
+.starsonPRP {
+  margin-top: 0.6rem;
+}
+.smallhrrulleronPRP {
+  background-color: rgb(196, 196, 196);
+  width: 400px;
+  height: 1px;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.largeboldpricesonPRP {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-top: -0.3rem;
+}
+.suggestedaymetntextonPRP {
+  margin-top: 0.4rem;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+.incdec-and-aitemsleft-PRP {
+  display: flex;
+  gap: 0.2rem;
+}
+.incrementofnumberofitemsonPRP {
+  background-color: rgb(212, 212, 212);
+  padding: 0.4rem;
+  border-radius: 18px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.decrementonPRP {
+  margin-right: auto;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+}
+.incrememntonPRP {
+  margin-left: auto;
+  font-size: 1rem;
+  margin-right: 0.3rem;
+}
+
+.itemsleftonPRP {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.buynow-and-addtocart-button-on-PRP {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.buynoe-button-onPRP {
+  width: 150px;
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color: blue;
+  color: white;
+}
+.addtocartbuttononPRP {
+  width: 150px;
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: 1px solid blue;
+  background-color: transparent;
+}
+
+.returnpolicyonPRP {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.returnpolicyonPRP i {
+  color: blue;
+}
+
+.returnpolicyonPRP p {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+.detailsfordeliveryreturnsonPRP {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.nuberofitemsleftonPRP {
+  color: blue;
+}
+.similar-items-umaylikeon-PRP {
+  padding: 1rem;
+  padding-left: -4rem;
+}
+
+.headingforsimilartemsonPRP {
+  font-size: 1.4rem;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.product_html_body_tag_for_positioning {
+  position: relative;
+}
+
+#overlay_for_modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.5); /* this is the dark background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal_div_itself {
+  width: 40vw;
+  height: auto;
+  background: rgb(223, 222, 222);
+  border-radius: 15px;
+  padding: 1rem;
+  position: absolute;
+  left: 30%;
+  top: 10%;
+}
+
+.headings_for_return_policy {
+  display: flex;
+}
+.return_policy_heading {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: blue;
+}
+.clost-button-for-return-policy-modal {
+  margin-left: auto;
+}
+.first_paragraph_for_return_policy {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-top: 2rem;
+}
+.non-returnable-items-return-policy {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.underlined-highlighted {
+  text-decoration: underline;
+  color: blue;
+}
+/*CART HTML*/
+.sidebysidecartboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  padding-left: 3rem;
+}
+.leftcartbox {
+  width: 700px;
+  border: 2px solid rgb(165, 165, 165);
+  border-radius: 7px;
+  padding: 1rem;
+  height: auto;
+}
+.leftcartboxtitleandclear {
+  display: flex;
+}
+.carttitle {
+  margin-right: auto;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.cartproductcount {
+  font-size: 0.8rem;
+  color: rgb(138, 138, 138);
+  margin-left: 0.2rem;
+  font-weight: normal;
+}
+.priceofitemoncarts {
+  margin-right: 3rem;
+}
+.leftcartboxclearcart {
+  margin-left: auto;
+  color: red;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.headingsforcartitems {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+.itemitselfoncart {
+  display: flex;
+  gap: 0.4rem;
+
+  width: 220px;
+}
+.itemnameandcategoryoncart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: center;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 0.9rem;
+}
+.itemsdetailsitselfoncart {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 0.4rem;
+  margin-top: 2rem;
+}
+.itemimageoncart {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(192, 192, 192);
+  border-radius: 7px;
+  position: relative;
+}
+.itemimageoncart img {
+  position: absolute;
+  top: 2%;
+  left: 3%;
+  width: 90%;
+  height: 90%;
+}
+
+.itemcaegoryoncart {
+  color: rgb(97, 97, 97);
+  font-size: 0.8rem;
+}
+.incrementordecrementofitemoncart {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-right: 7rem;
+}
+
+.decrementoncart i,
+.incrementoncart i {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid rgb(167, 167, 167);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceofitemoncart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.removecartitembutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  cursor: pointer;
+}
+.rightcartbox {
+  width: 350px;
+  border: 2px solid rgb(187, 187, 187);
+  height: 250px;
+  border-radius: 10px;
+  background-color: rgb(238, 237, 237);
+  padding: 0.4rem;
+}
+.promocodeinputandbtn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: relative;
+}
+.promocodeheading {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: bold;
+}
+.promocodeinput {
+  background-color: transparent;
+  border-radius: 15px;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 0.5rem;
+}
+
+.applypormocodebutton {
+  width: 90px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 0.3rem;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  position: absolute;
+  left: 72%;
+  top: 44%;
+}
+
+.name-price-on-cart-right-box {
+  display: flex;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-top: 0.5rem;
+  justify-content: space-around;
+  color: rgb(70, 69, 69);
+}
+/* .price-on-right-cart-box {
+  margin-left: auto;
+} */
+
+.total-checkout-in-right-cart-box {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-around;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.checkout-button-right-cart-box button {
+  border-radius: 15px;
+  border: none;
+  width: 90px;
+  background-color: black;
+  color: whitesmoke;
+  padding: 0.2rem;
+  cursor: pointer;
 }
