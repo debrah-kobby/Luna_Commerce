@@ -1222,6 +1222,7 @@ header {
   border: 2px solid rgb(165, 165, 165);
   border-radius: 7px;
   padding: 1rem;
+  height: auto;
 }
 .leftcartboxtitleandclear {
   display: flex;
@@ -1296,7 +1297,9 @@ header {
 .itemimageoncart img {
   position: absolute;
   top: 2%;
-  left: 2%;
+  left: 3%;
+  width: 90%;
+  height: 90%;
 }
 
 .itemcaegoryoncart {

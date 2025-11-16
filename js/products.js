@@ -32,8 +32,16 @@ document.addEventListener("click", (e) => {
     e.target.classList.toggle("fa-regular");
   }
   if (e.target.classList.contains("addtocardbuttononitemcardSh")) {
+    const cartproductCard = e.target.closest(".itemcardonshoppage");
+    const cartproduct = JSON.parse(cartproductCard.dataset.product);
+
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    cartItems.push(cartproduct);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
     window.location.href = "/cart.html";
   }
+
   if (e.target.classList.contains("featureditemsimage")) {
     const productCard = e.target.closest(".itemcardonshoppage");
     const product = productCard.dataset.product;
