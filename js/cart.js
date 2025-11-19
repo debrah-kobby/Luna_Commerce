@@ -1,4 +1,8 @@
-// DOM Elements
+//CART PAGE JAVASCRIPT FILE
+
+//========================================
+// DOM ELEMENTS
+//========================================
 const cartObjectCount = document.querySelector(".cartproductcount");
 const clearCartBtn = document.querySelector(".leftcartboxclearcart");
 const cartContainer = document.querySelector(".itemscontaineroncart");
@@ -8,23 +12,30 @@ const numberofquantityoncart = document.querySelector(
   ".numberofquantityoncart"
 );
 
-// Render cart on load
+//========================================
+// INITIALIZE CART ON PAGE LOAD
+//========================================
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();
 });
 
-// Render Cart Logic
+//========================================
+// RENDER CART LOGIC
+//========================================
 function renderCart() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   cartContainer.innerHTML = "";
 
+  // Empty Cart Check
   if (cartItems.length === 0) {
     cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    cartContainer.classList.add("cartemptytext");
     cartObjectCount.textContent = "(0 products)";
     return;
   }
 
+  // Create Cart Items
   cartItems.forEach((product) => {
     const cartItem = createCartItem(product);
     cartContainer.appendChild(cartItem);
@@ -37,7 +48,7 @@ function renderCart() {
     // Initialize count
     let count = product.qty || 1;
 
-    // Decrement
+    // Decrement Quantity
     decrementBtn.addEventListener("click", () => {
       if (count > 1) {
         count--;
@@ -47,14 +58,14 @@ function renderCart() {
         product.qty = count;
         localStorage.setItem("cart", JSON.stringify(cartItems));
 
-        // Optionally update price display
+        // Update price display
         cartItem.querySelector(".priceofitemoncart").textContent = `$${(
           product.price * count
         ).toFixed(2)}`;
       }
     });
 
-    // Increment
+    // Increment Quantity
     incrementBtn.addEventListener("click", () => {
       count++;
       quantityEl.textContent = count;
@@ -70,9 +81,10 @@ function renderCart() {
     });
   });
 
+  // Update cart count display
   cartObjectCount.textContent = `( ${cartItems.length} products)`;
 
-  // Button: Remove Single Item
+  // Remove Single Item Event Listeners
   document.querySelectorAll(".removecartitembutton").forEach((button) => {
     button.addEventListener("click", (e) => {
       const productIdToRemove = e.currentTarget.dataset.id;
@@ -85,7 +97,9 @@ function renderCart() {
   });
 }
 
-// Create Cart Item Element
+//========================================
+// CREATE CART ITEM ELEMENT
+//========================================
 function createCartItem(product) {
   const div = document.createElement("div");
   div.classList.add("itemsdetailsitselfoncart");
@@ -116,12 +130,17 @@ function createCartItem(product) {
   return div;
 }
 
-// Clear Cart Logic
+//========================================
+// CLEAR CART BUTTON
+//========================================
 clearCartBtn.addEventListener("click", () => {
   localStorage.removeItem("cart");
   renderCart();
 });
 
+//========================================
+// UNUSED FUNCTION (CAN BE REMOVED)
+//========================================
 function increaseorDecrease() {
   let count = 0;
 

@@ -1,7 +1,10 @@
 //MAIN JAVASCRIPT FILE
-//DOM
+//IMPORT
+import { wishlistToast } from "./utils.js";
+//========================================
+// DOM ELEMENTS
+//========================================
 let loaderContainer = document.querySelector(".loader-container");
-
 let firstbuttons = document.querySelector(".buttons_on_first_page");
 let seeAllButton = document.querySelector(".see_all_items_button_on_main_page");
 let firstLookBookButton = document.querySelector(".toplookbookconnection p");
@@ -11,6 +14,9 @@ let index = 0;
 
 console.log("script loaded");
 
+//========================================
+// PAGE LOAD & PRELOADER
+//========================================
 // Hide body content at the start
 document.body.style.overflow = "hidden"; // prevents scrolling
 document.querySelector(".first_page").style.display = "none";
@@ -21,9 +27,12 @@ window.addEventListener("load", () => {
     document.querySelector(".first_page").style.display = "block"; // Show main content
     document.body.style.overflow = "auto"; // allow scrolling again
     console.log("Loader-Hidden");
-  }, 1000); // 5 seconds
+  }, 2000); // 5 seconds
 });
 
+//========================================
+// NAVIGATION EVENT LISTENERS
+//========================================
 firstbuttons.addEventListener("click", (e) => {
   window.location = "shop.html";
 });
@@ -40,6 +49,9 @@ firstLookBookButton.addEventListener("mouseover", (e) => {
   e.target.style.cursor = "pointer";
 });
 
+//========================================
+// PRODUCT FUNCTIONS
+//========================================
 async function getProducts(limit = 6) {
   try {
     const res = await fetch("https://fakestoreapi.com/products");
@@ -54,10 +66,10 @@ async function getProducts(limit = 6) {
   }
 }
 
-getProducts(4); // show only 4 products
 function truncateTitle(title, maxLength = 20) {
   return title.length > maxLength ? title.slice(0, maxLength) + "..." : title;
 }
+
 function truncateCategory(category, maxLength) {
   return category.length > maxLength
     ? category.slice(0, maxLength) + "..."
@@ -72,7 +84,6 @@ function displayProducts(products) {
     const truncatedTitle = truncateTitle(product.title, 22);
     const truncatedCategory = truncateCategory(product.category, 5);
 
-    // Create a div instead of using raw HTML string
     const productCard = document.createElement("div");
     productCard.classList.add("item-card-on-main-page");
 
@@ -99,23 +110,31 @@ function displayProducts(products) {
       </div>
     `;
 
-    // NOW this works
+    // Click on the product card (except wishlist)
     productCard.addEventListener("click", () => {
       localStorage.setItem("selectedProduct", JSON.stringify(product));
       window.location.href = "product.html";
+    });
+
+    // Wishlist icon click
+    const wishlistIcon = productCard.querySelector(".fa-heart");
+    wishlistIcon.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevents the card click
+      wishlistIcon.classList.toggle("fa-solid");
+      wishlistIcon.classList.toggle("fa-regular");
+      wishlistToast();
     });
 
     container.appendChild(productCard);
   });
 }
 
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("fa-heart")) {
-    e.target.classList.toggle("fa-solid");
-    e.target.classList.toggle("fa-regular");
-  }
-});
+// Initialize products - show only 4 products
+getProducts(4);
 
+//========================================
+// IMAGE SLIDER / CAROUSEL
+//========================================
 function autoSlide() {
   index++;
   if (index >= slides.length) {
@@ -125,7 +144,9 @@ function autoSlide() {
 }
 
 let interval = setInterval(autoSlide, 3000);
+
 slidesContainer.addEventListener("mouseover", () => clearInterval(interval));
+
 slidesContainer.addEventListener("mouseout", () => {
   interval = setInterval(autoSlide, 4000);
 });

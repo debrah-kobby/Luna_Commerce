@@ -1,8 +1,13 @@
+//UTILS.JS - REUSABLE FUNCTIONS
 
+//========================================
+// CREATE PRODUCT CARD
+//========================================
 export function createProductCard(product) {
   const div = document.createElement("div");
   div.classList.add("itemcardonshoppage");
   div.dataset.product = JSON.stringify(product);
+
   div.innerHTML = `
     <img src="${product.image}" alt="${
     product.title
@@ -27,6 +32,8 @@ export function createProductCard(product) {
     </div>
     <button class="addtocardbuttononitemcardSh">Add to Cart</button>
   `;
+
+  // Wishlist Toggle Event
   div.addEventListener("click", (event) => {
     if (event.target.classList.contains("fa-heart")) {
       event.stopPropagation();
@@ -35,17 +42,22 @@ export function createProductCard(product) {
       console.log("loveiconclicked");
     }
   });
+
   return div;
 }
 
-// Fetch products for a category and append to a container
+//========================================
+// FETCH PRODUCTS BY CATEGORY
+//========================================
 export async function fetchCategory(category, container, limit = 4) {
   try {
     const response = await fetch(
       `https://fakestoreapi.com/products/category/${category}`
     );
     const data = await response.json();
+
     container.innerHTML = "";
+
     data
       .slice(0, limit)
       .forEach((product) => container.appendChild(createProductCard(product)));
@@ -54,17 +66,33 @@ export async function fetchCategory(category, container, limit = 4) {
   }
 }
 
-// Fetch random featured products
+//========================================
+// FETCH RANDOM FEATURED PRODUCTS
+//========================================
 export async function fetchFeatured(container, limit = 6) {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
+
     const random = data.sort(() => 0.5 - Math.random()).slice(0, limit);
+
     container.innerHTML = "";
+
     random.forEach((product) =>
       container.appendChild(createProductCard(product))
     );
   } catch (error) {
     console.error("Error fetching featured:", error);
   }
+}
+
+export function wishlistToast() {
+  const wishlistsToast = document.querySelector(".toastforwishlist1");
+  if (!wishlistsToast) return;
+  wishlistsToast.style.display = "flex";
+
+  // Hide after 3 seconds
+  setTimeout(() => {
+    wishlistsToast.style.display = "none";
+  }, 30000); // 3000ms = 3 seconds
 }
