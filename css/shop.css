@@ -260,3 +260,419 @@
   padding: 1rem;
 }
 
+/* ===================================
+   SHOP HTML - MOBILE MEDIA QUERIES
+   =================================== */
+
+/* Tablets and Medium Screens (1024px and below) */
+@media screen and (max-width: 1024px) {
+  /* Banner adjustments */
+  .shophtmlbanner {
+    height: 200px;
+  }
+
+  .grabupto50 {
+    font-size: 1.8rem;
+    width: 300px;
+  }
+
+  .shoeimageonbanner1 {
+    left: 65%;
+  }
+
+  .shoeimageonbanner1 img {
+    width: 220px;
+  }
+
+  /* Item cards - 3 per row */
+  .overalldivforfeaturesitemcards,
+  .trendingitemsonShoveralldiv,
+  .overalldivformensitemscardsSh,
+  .overalldivforwomenssitemscardsSh,
+  .overalldivforaccessoriessitemscardsSh,
+  .overalldivforshoesitemscardsSh,
+  .overalldivforjacketsitemscardsSh {
+    justify-content: center;
+  }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+  /* ========== HEADER ========== */
+  .header_for_shophtml {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+
+  /* Logo centered at top */
+  .nav_logo {
+    order: 1;
+    width: 280px;
+    height: 80px;
+    margin: 0;
+  }
+
+  #logo_text_shop img {
+    width: 140px;
+  }
+
+  /* First nav items below logo */
+  .nav_bar_div_forShop.first_nav_items {
+    order: 2;
+    margin: 0;
+  }
+
+  .nav_bar_div_forShop.first_nav_items ul {
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  /* Second nav items beside first nav */
+  .nav_bar_div_forShop.second_nav_items {
+    order: 2;
+    margin: 0;
+    margin-left: 1rem;
+  }
+
+  .nav_bar_div_forShop.second_nav_items ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav_bar_div_forShop li {
+    font-size: 0.85rem;
+  }
+
+  /* ========== BANNER ========== */
+  .shophtmlbanner {
+    height: 180px;
+    margin: 0.5rem;
+  }
+
+  .grabupto50 {
+    font-size: 1.5rem;
+    width: 250px;
+    top: 20%;
+  }
+
+  .buynowonbanner {
+    top: 65%;
+    width: 100px;
+    font-size: 0.85rem;
+  }
+
+  .shoeimageonbanner1 {
+    left: 60%;
+    top: 5%;
+  }
+
+  .shoeimageonbanner1 img {
+    width: 180px;
+  }
+
+  /* Buttons under banner */
+  .buttonsundershopbanner {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .buttonsundershopbanner a.button1underbanner {
+    width: 70px;
+    font-size: 0.85rem;
+  }
+
+  /* ========== SECTIONS ========== */
+  .featured-items-title p,
+  .trendingsectiontitleonSh,
+  .mensectiontititleSh,
+  .womenssectiontititleSh,
+  .assesoriessectiontititleSh,
+  .jacketsectiontititleSh,
+  .shoesectiontititleSh {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  /* ========== ITEM CARDS - 2 PER ROW ========== */
+  .overalldivforfeaturesitemcards,
+  .trendingitemsonShoveralldiv,
+  .overalldivformensitemscardsSh,
+  .overalldivforwomenssitemscardsSh,
+  .overalldivforaccessoriessitemscardsSh,
+  .overalldivforshoesitemscardsSh,
+  .overalldivforjacketsitemscardsSh {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    padding: 0.5rem;
+  }
+
+  .itemcardonshoppage {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .itembackgroundonitemcardSh {
+    width: 100%;
+    height: 180px;
+  }
+
+  .itemcardonshoppage img {
+    width: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .loveicononfeatureditems {
+    left: auto;
+    right: 5%;
+  }
+
+  .loveicononfeatureditems i {
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+
+  .nameandpricedivonitemcardSh {
+    font-size: 0.85rem;
+  }
+
+  .itemdescriptiononitemcardSh {
+    font-size: 0.65rem;
+  }
+
+  .addtocardbuttononitemcardSh {
+    width: 110px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+  /* ========== HEADER ========== */
+  .nav_logo {
+    width: 220px;
+    height: 70px;
+  }
+
+  #logo_text_shop img {
+    width: 120px;
+  }
+
+  .nav_bar_div_forShop li {
+    font-size: 0.75rem;
+  }
+
+  .nav_bar_div_forShop.first_nav_items ul {
+    gap: 0.8rem;
+  }
+
+  .nav_bar_div_forShop.second_nav_items ul {
+    gap: 0.8rem;
+  }
+
+  .sign-up-button-1 {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .lock_icon {
+    padding: 0.3rem;
+  }
+
+  /* ========== BANNER ========== */
+  .shophtmlbanner {
+    height: 150px;
+    margin: 0.5rem;
+  }
+
+  .grabupto50 {
+    font-size: 1.2rem;
+    width: 200px;
+    top: 15%;
+    left: 3%;
+  }
+
+  .buynowonbanner {
+    top: 60%;
+    left: 3%;
+    width: 90px;
+    padding: 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  .shoeimageonbanner1 {
+    left: 55%;
+    top: 10%;
+  }
+
+  .shoeimageonbanner1 img {
+    width: 150px;
+  }
+
+  /* Buttons under banner */
+  .buttonsundershopbanner a.button1underbanner {
+    width: 65px;
+    font-size: 0.75rem;
+    padding: 0.3rem;
+  }
+
+  /* ========== SECTIONS ========== */
+  .featured-items-title p,
+  .trendingsectiontitleonSh,
+  .mensectiontititleSh,
+  .womenssectiontititleSh,
+  .assesoriessectiontititleSh,
+  .jacketsectiontititleSh,
+  .shoesectiontititleSh {
+    font-size: 1.1rem;
+  }
+
+  .featureditemssection,
+  .trendingsectioninshop,
+  .menssectiononshophtml,
+  .womensssectiononshophtml,
+  .accessoriessectiononshophtml,
+  .shoessectiononshophtml,
+  .jacketsssectiononshophtml {
+    padding: 0.5rem;
+  }
+
+  /* ========== ITEM CARDS - 2 PER ROW ========== */
+  .overalldivforfeaturesitemcards,
+  .trendingitemsonShoveralldiv,
+  .overalldivformensitemscardsSh,
+  .overalldivforwomenssitemscardsSh,
+  .overalldivforaccessoriessitemscardsSh,
+  .overalldivforshoesitemscardsSh,
+  .overalldivforjacketsitemscardsSh {
+    gap: 1rem;
+    padding: 0.3rem;
+  }
+
+  .itemcardonshoppage {
+    max-width: 170px;
+  }
+
+  .itembackgroundonitemcardSh {
+    height: 160px;
+  }
+
+  .itemcardonshoppage img {
+    width: 100px;
+  }
+
+  .loveicononfeatureditems i {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+
+  .nameandpricedivonitemcardSh {
+    font-size: 0.8rem;
+  }
+
+  .itemdescriptiononitemcardSh {
+    font-size: 0.6rem;
+  }
+
+  .staricononitemcardSh i {
+    font-size: 0.8rem;
+  }
+
+  .staricononitemcardSh p {
+    font-size: 0.7rem;
+  }
+
+  .addtocardbuttononitemcardSh {
+    width: 100px;
+    font-size: 0.8rem;
+    padding: 0.25rem;
+  }
+
+  /* ========== FOOTER ========== */
+  .main_page_copyright {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+  /* ========== HEADER ========== */
+  .nav_logo {
+    width: 200px;
+    height: 65px;
+  }
+
+  #logo_text_shop img {
+    width: 100px;
+  }
+
+  .nav_bar_div_forShop li {
+    font-size: 0.7rem;
+  }
+
+  .nav_bar_div_forShop.first_nav_items ul {
+    gap: 0.6rem;
+  }
+
+  /* ========== BANNER ========== */
+  .shophtmlbanner {
+    height: 130px;
+  }
+
+  .grabupto50 {
+    font-size: 1rem;
+    width: 170px;
+  }
+
+  .buynowonbanner {
+    width: 80px;
+    font-size: 0.7rem;
+  }
+
+  .shoeimageonbanner1 {
+    left: 50%;
+  }
+
+  .shoeimageonbanner1 img {
+    width: 130px;
+  }
+
+  .buttonsundershopbanner a.button1underbanner {
+    width: 60px;
+    font-size: 0.7rem;
+  }
+
+  /* ========== ITEM CARDS - 2 PER ROW ========== */
+  .itemcardonshoppage {
+    max-width: 150px;
+  }
+
+  .itembackgroundonitemcardSh {
+    height: 140px;
+  }
+
+  .itemcardonshoppage img {
+    width: 90px;
+  }
+
+  .nameandpricedivonitemcardSh {
+    font-size: 0.75rem;
+  }
+
+  .addtocardbuttononitemcardSh {
+    width: 90px;
+    font-size: 0.75rem;
+  }
+}

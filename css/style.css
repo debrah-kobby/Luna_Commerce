@@ -173,6 +173,43 @@ header {
   padding: 0.3rem;
   cursor: pointer;
 }
+/* Hamburger Menu - Hidden by default */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu span {
+  width: 22px;
+  height: 2.5px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when active */
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
 
 /* FIRST PAGE */
 .first_page {
@@ -638,4 +675,622 @@ header {
 .correct_for_wishlist_toast {
   display: flex;
   align-self: center;
+}
+
+/* ===================================
+   LUNA COMMERCE - MOBILE MEDIA QUERIES
+   =================================== */
+
+/* Tablets and Medium Screens (1024px and below) */
+@media screen and (max-width: 1024px) {
+  /* Navigation adjustments */
+  .nav_bar_div ul {
+    gap: 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .nav_logo {
+    width: clamp(250px, 35vw, 400px);
+  }
+
+  /* Hero section */
+  .hero_section {
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+  }
+
+  /* Hero bottom adjustments */
+  .reviewsonhomepage {
+    width: 100%;
+    margin-top: -2rem;
+  }
+
+  .reviewsonhomepage img {
+    width: 100px;
+  }
+
+  .video-on-homepage video {
+    width: clamp(180px, 22vw, 250px);
+  }
+
+  /* Top picks */
+  .first-top-pick-text {
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+  }
+
+  /* Moving words section */
+  .square-background-on-moving-pictures-section {
+    width: clamp(280px, 32vw, 400px);
+    height: clamp(380px, 42vw, 500px);
+  }
+
+  .movingWORDSITSELF1,
+  .movingWORDSITSELF2 {
+    font-size: clamp(1.8rem, 5vw, 5rem);
+  }
+
+  /* New Arrivals - 2 items per row */
+  .all-item-cards-on-main-page {
+    gap: 2rem;
+  }
+
+  .item-card-on-main-page {
+    width: clamp(240px, 28vw, 300px);
+  }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+  /* ========== HEADER/NAVIGATION ========== */
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+  }
+
+  /* Center the logo with clip path */
+  .nav_logo {
+    order: 2;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 75px;
+  }
+
+  .logo_text img {
+    width: 200px;
+  }
+
+  /* Navigation container below logo - side by side */
+  .first_nav_items {
+    margin-right: 0;
+    order: 1;
+  }
+  .nav_bar_div {
+    margin-top: -1rem;
+  }
+  .first_nav_items ul {
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  /* Second nav with hamburger menu - BESIDE first nav */
+  .second_nav_items {
+    margin-left: 0;
+    order: 3;
+    position: relative;
+  }
+  .hamburger-menu {
+    display: flex;
+    margin-top: 1.5rem;
+  }
+
+  /* Hamburger menu button - smaller size */
+
+  .second_nav_items > ul {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    gap: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .second_nav_items > ul.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .second_nav_items > ul > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttons_on_nav {
+    margin-top: 0;
+  }
+
+  /* Wrapper for first nav and hamburger to be side by side */
+  header::after {
+    content: "";
+    display: none;
+  }
+
+  /* ========== HERO SECTION ========== */
+  .hero_section {
+    margin-top: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .buttons_on_first_page {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .shop1,
+  .explore1 {
+    width: 150px;
+  }
+
+  /* ========== HERO BOTTOM SECTION ========== */
+  /* ORDER: Model Image → Reviews → Video */
+  .hero-bottom-section {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .model-image-1-n-homepage {
+    order: 1;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .model-image-1-n-homepage img {
+    width: clamp(200px, 60vw, 350px);
+  }
+
+  .reviewsonhomepage {
+    order: 2;
+    margin-top: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .reviewsonhomepage img {
+    margin: 0 auto;
+  }
+
+  .reviewsonhomepage p {
+    width: 100%;
+  }
+
+  .video-on-homepage {
+    order: 3;
+    margin: 0 auto;
+  }
+
+  .video-on-homepage video {
+    width: clamp(250px, 70vw, 400px);
+  }
+
+  /* ========== MOVING WORDS SECTION ========== */
+  .moving-words1 {
+    height: auto;
+    padding: 3rem 1rem;
+    margin-top: 6rem;
+  }
+
+  .square-background-on-moving-pictures-section {
+    width: clamp(280px, 80vw, 380px);
+    height: clamp(380px, 90vw, 480px);
+    font-size: 0.75rem;
+  }
+
+  .image-on-moving-pics-section {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: auto;
+  }
+
+  .movingWORDSITSELF1,
+  .movingWORDSITSELF2 {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+    letter-spacing: clamp(0.3rem, 1vw, 0.8rem);
+  }
+
+  /* ========== TOP PICKS SECTION ========== */
+  .top-picks-section {
+    padding: 1rem 0.5rem;
+  }
+
+  .first-top-picks-texts {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .first-top-pick-text {
+    width: 100%;
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+
+  .second-top-pick-text {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .first-image-div-on-top-picks {
+    max-height: 400px;
+  }
+
+  .first-p-on-top-picks-images {
+    width: 80%;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  /* ========== NEW ARRIVALS - 2 ITEMS PER ROW ========== */
+  .newarrivalsonmainpage {
+    padding: 1rem 0.5rem;
+  }
+
+  .headings-for-newarrivals-section {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .heading---newarrival,
+  .heading---Allbrands {
+    margin: 0 auto;
+  }
+
+  .heading---middle-heading-for-new-arrivals {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+
+  .all-item-cards-on-main-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+  }
+
+  .item-card-on-main-page {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .item-card-on-main-page img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .name-and-price-and-arrow-on-main-page-items {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .category-and-wishlist {
+    position: absolute;
+    left: auto;
+    right: 5%;
+    top: 5%;
+  }
+
+  .category-on-main-page-items {
+    padding: 0.3rem 0.5rem;
+    width: auto;
+    min-width: 70px;
+  }
+
+  .wishlist-icon-on-main-page-items {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* ========== SECOND PAGE ========== */
+  .second-page {
+    height: auto;
+    padding: 2rem 1rem;
+    min-height: 60vh;
+  }
+
+  .blackjacket1 {
+    width: 100%;
+    height: auto;
+  }
+
+  .lienenJruler {
+    display: none;
+  }
+
+  .toplookbookconnection {
+    position: static;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .toplookbookconnection h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .toplookbookconnection p {
+    margin: 1rem auto 0;
+    width: fit-content;
+  }
+
+  /* ========== TOAST ========== */
+  .toastforwishlist1 {
+    width: 90%;
+    max-width: 350px;
+    left: 50%;
+    top: 10%;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+  /* ========== HEADER ========== */
+  .nav_logo {
+    width: 220px;
+    height: 70px;
+  }
+
+  .logo_text img {
+    width: 150px;
+  }
+
+  .first_nav_items ul {
+    gap: 0.6rem;
+    font-size: 0.7rem;
+  }
+  .hamburger-menu {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hamburger-menu span {
+    width: 20px;
+  }
+
+  .second_nav_items > ul {
+    min-width: 160px;
+    padding: 0.8rem;
+  }
+  .second_nav_items > ul {
+    min-width: 160px;
+    padding: 0.8rem;
+  }
+
+  .sign-up-button-1 {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  /* ========== FIRST PAGE ========== */
+  .first_page {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+
+  .hero_section {
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+    padding: 0 0.5rem;
+  }
+
+  .shop1,
+  .explore1 {
+    width: 130px;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* ========== HERO BOTTOM ========== */
+  .reviewsonhomepage img {
+    width: 80px;
+  }
+
+  .reviewsonhomepage p {
+    font-size: 0.85rem;
+  }
+
+  .model-image-1-n-homepage img {
+    width: clamp(180px, 70vw, 280px);
+  }
+
+  /* ========== MOVING WORDS ========== */
+  .square-background-on-moving-pictures-section {
+    width: 90vw;
+    height: 100vw;
+    max-width: 320px;
+    max-height: 420px;
+  }
+
+  .brand-formoving-pics-section,
+  .delivery-date-for-moving-pics-section,
+  .season-on-moving-pics-section,
+  .clothese-name-on-moving-pics-section {
+    font-size: 0.7rem;
+  }
+
+  .movingWORDSITSELF1,
+  .movingWORDSITSELF2 {
+    font-size: clamp(1.2rem, 10vw, 2rem);
+    letter-spacing: clamp(0.2rem, 2vw, 0.5rem);
+  }
+
+  /* ========== TOP PICKS ========== */
+  .first-image-div-on-top-picks {
+    max-height: 300px;
+  }
+
+  .first-p-on-top-picks-images {
+    font-size: clamp(0.9rem, 5vw, 1.2rem);
+    width: 85%;
+  }
+
+  .date-on-top-picks-images {
+    font-size: 0.75rem;
+  }
+
+  .bordered-text-on-top-pick-image p {
+    font-size: 0.7rem;
+  }
+
+  /* ========== NEW ARRIVALS - 2 PER ROW ========== */
+  .heading---newarrival,
+  .heading---Allbrands {
+    font-size: 0.8rem;
+  }
+
+  .heading---middle-heading-for-new-arrivals {
+    font-size: clamp(1rem, 5vw, 1.3rem);
+  }
+
+  .all-item-cards-on-main-page {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .item-card-on-main-page {
+    max-width: 160px;
+    min-height: 240px;
+  }
+
+  .item-card-on-main-page img {
+    height: 150px;
+  }
+
+  .category-on-main-page-items {
+    width: auto;
+    min-width: 60px;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .wishlist-icon-on-main-page-items {
+    width: 24px;
+    height: 24px;
+  }
+
+  .name-and-price-and-arrow-on-main-page-items {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  /* ========== SECOND PAGE ========== */
+  .toplookbookconnection h2 {
+    font-size: clamp(1.2rem, 6vw, 1.8rem);
+  }
+
+  .toplookbookconnection p {
+    padding: 0.5rem;
+    width: 100px;
+    font-size: 0.85rem;
+  }
+
+  /* ========== FOOTER ========== */
+  .main_page_copyright {
+    font-size: 0.85rem;
+  }
+
+  /* ========== TOAST ========== */
+  .toastforwishlist1 {
+    width: 95%;
+    height: auto;
+    padding: 0.8rem;
+  }
+
+  .correctnadtextintoastforwish {
+    gap: 0.5rem;
+  }
+
+  .correct_for_wishlist_toast i {
+    font-size: 1.5rem;
+    width: 25px;
+    height: 25px;
+  }
+
+  .actualtoast_text-on-wishlist {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+  .nav_logo {
+    width: 180px;
+    height: 65px;
+  }
+
+  .logo_text img {
+    width: 100px;
+  }
+
+  .hamburger-menu {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hamburger-menu span {
+    width: 18px;
+  }
+
+  .first_nav_items ul {
+    font-size: 0.65rem;
+    gap: 0.5rem;
+  }
+
+  .hero_section {
+    font-size: 1.1rem;
+  }
+
+  .shop1,
+  .explore1 {
+    width: 120px;
+    font-size: 0.8rem;
+  }
+
+  .square-background-on-moving-pictures-section {
+    width: 95vw;
+    max-width: 280px;
+  }
+
+  .item-card-on-main-page {
+    max-width: 140px;
+    min-height: 220px;
+  }
+
+  .item-card-on-main-page img {
+    height: 130px;
+  }
 }

@@ -214,3 +214,263 @@
   font-size: 2rem;
   margin-top: 1rem;
 }
+
+/* CART PAGE RESPONSIVE MEDIA QUERIES */
+
+/* Large Tablets and Small Laptops (1024px and below) */
+@media screen and (max-width: 1024px) {
+  .sidebysidecartboxes {
+    padding-left: 1.5rem;
+    justify-content: center;
+  }
+
+  .leftcartbox {
+    width: 600px;
+  }
+
+  .incrementordecrementofitemoncart {
+    margin-right: 4rem;
+  }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+  .sidebysidecartboxes {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftcartbox {
+    width: 95%;
+    max-width: 600px;
+  }
+
+  .rightcartbox {
+    width: 95%;
+    max-width: 600px;
+  }
+
+  .headingsforcartitems {
+    font-size: 0.85rem;
+  }
+
+  .itemitselfoncart {
+    width: 180px;
+  }
+
+  .incrementordecrementofitemoncart {
+    margin-right: 2rem;
+    gap: 0.7rem;
+  }
+
+  .priceofitemoncarts {
+    margin-right: 1rem;
+  }
+
+  .applypormocodebutton {
+    left: 70%;
+  }
+}
+
+/* Small Mobile Screens (480px and below) */
+@media screen and (max-width: 480px) {
+  .sidebysidecartboxes {
+    padding: 0.5rem;
+  }
+
+  .leftcartbox {
+    width: 100%;
+    padding: 0.7rem;
+  }
+
+  .rightcartbox {
+    width: 100%;
+    height: auto;
+    padding: 0.7rem;
+  }
+
+  .leftcartboxtitleandclear {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .carttitle {
+    font-size: 1.1rem;
+  }
+
+  .leftcartboxclearcart {
+    margin-left: 0;
+    font-size: 0.85rem;
+  }
+
+  .headingsforcartitems {
+    font-size: 0.75rem;
+    gap: 0.3rem;
+  }
+
+  .productsoncarts {
+    width: 130px;
+  }
+
+  .itemsdetailsitselfoncart {
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding: 0.5rem;
+    position: relative;
+  }
+
+  .itemitselfoncart {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .itemimageoncart {
+    width: 80px;
+    height: 80px;
+  }
+
+  .itemnameandcategoryoncart {
+    font-size: 0.85rem;
+  }
+
+  .incrementordecrementofitemoncart {
+    margin-right: 0;
+    gap: 0.8rem;
+    order: 3;
+  }
+
+  .decrementoncart i,
+  .incrementoncart i {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+  }
+
+  .priceofitemoncart {
+    order: 2;
+    margin-left: auto;
+    font-size: 0.9rem;
+  }
+
+  .priceofitemoncarts {
+    margin-right: 0;
+  }
+
+  .removecartitembutton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .promocodeinputandbtn {
+    gap: 0.4rem;
+  }
+
+  .promocodeheading {
+    font-size: 0.95rem;
+  }
+
+  .promocodeinput {
+    padding: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .applypormocodebutton {
+    width: 75px;
+    left: 68%;
+    top: 46%;
+    font-size: 0.85rem;
+  }
+
+  .name-price-on-cart-right-box {
+    font-size: 0.9rem;
+    gap: 1rem;
+  }
+
+  .total-checkout-in-right-cart-box {
+    font-size: 0.9rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .checkout-button-right-cart-box button {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .cartemptytext {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .main_page_copyright_cart {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+  .carttitle {
+    font-size: 1rem;
+  }
+
+  .cartproductcount {
+    font-size: 0.7rem;
+  }
+
+  .leftcartboxclearcart {
+    font-size: 0.75rem;
+  }
+
+  .headingsforcartitems {
+    font-size: 0.7rem;
+  }
+
+  .itemimageoncart {
+    width: 70px;
+    height: 70px;
+  }
+
+  .itemnameandcategoryoncart {
+    font-size: 0.8rem;
+  }
+
+  .itemcaegoryoncart {
+    font-size: 0.7rem;
+  }
+
+  .decrementoncart i,
+  .incrementoncart i {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+
+  .numberofquantityoncart {
+    font-size: 0.85rem;
+  }
+
+  .priceofitemoncart {
+    font-size: 0.85rem;
+  }
+
+  .promocodeheading {
+    font-size: 0.9rem;
+  }
+
+  .applypormocodebutton {
+    width: 70px;
+    font-size: 0.8rem;
+    left: 65%;
+  }
+
+  .cartemptytext {
+    font-size: 1.3rem;
+  }
+}

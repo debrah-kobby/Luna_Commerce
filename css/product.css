@@ -218,3 +218,287 @@
   text-decoration: underline;
   color: blue;
 }
+/* PRODUCT PAGE RESPONSIVE MEDIA QUERIES */
+
+/* Large Tablets and Small Laptops (1024px and below) */
+@media screen and (max-width: 1024px) {
+  .imageandsidenotesonPRP {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    gap: 2rem;
+  }
+
+  .bigimageonPRPbackground {
+    width: 350px;
+    height: 400px;
+  }
+
+  .mainitemtitleforPRP {
+    font-size: 2.2rem;
+  }
+
+  .smallhrrulleronPRP {
+    width: 350px;
+  }
+
+  .modal_div_itself {
+    width: 50vw;
+    left: 25%;
+  }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+  .imageandsidenotesonPRP {
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .bigimageonPRPbackground {
+    width: 90%;
+    max-width: 450px;
+    height: 450px;
+  }
+
+  .textby {
+    width: 90%;
+    max-width: 450px;
+  }
+
+  .mainitemtitleforPRP {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .supportingtitlesentenceonPRP {
+    width: 100%;
+    text-align: center;
+  }
+
+  .starsonPRP {
+    justify-content: center;
+  }
+
+  .smallhrrulleronPRP {
+    width: 100%;
+  }
+
+  .largeboldpricesonPRP {
+    text-align: center;
+  }
+
+  .suggestedaymetntextonPRP {
+    text-align: center;
+  }
+
+  .incdec-and-aitemsleft-PRP {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .incrementofnumberofitemsonPRP {
+    width: 140px;
+  }
+
+  .buynow-and-addtocart-button-on-PRP {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .returnpolicyonPRP {
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal_div_itself {
+    width: 70vw;
+    left: 15%;
+    top: 5%;
+  }
+
+  .similar-items-umaylikeon-PRP {
+    padding: 1rem 0.5rem;
+  }
+
+  .headingforsimilartemsonPRP {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+/* Small Mobile Screens (480px and below) */
+@media screen and (max-width: 480px) {
+  .imageandsidenotesonPRP {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    gap: 1rem;
+  }
+
+  .bigimageonPRPbackground {
+    width: 100%;
+    height: 380px;
+  }
+
+  .textby {
+    width: 100%;
+  }
+
+  .mainitemtitleforPRP {
+    font-size: 1.8rem;
+  }
+
+  .supportingtitlesentenceonPRP {
+    font-size: 0.75rem;
+  }
+
+  .starsonPRP {
+    font-size: 0.9rem;
+  }
+
+  .starsonPRP p {
+    font-size: 0.85rem;
+  }
+
+  .largeboldpricesonPRP {
+    font-size: 1.3rem;
+  }
+
+  .suggestedaymetntextonPRP {
+    font-size: 0.75rem;
+  }
+
+  .incrementofnumberofitemsonPRP {
+    width: 130px;
+    padding: 0.35rem;
+  }
+
+  .itemsleftonPRP {
+    font-size: 0.75rem;
+  }
+
+  .buynow-and-addtocart-button-on-PRP {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .buynoe-button-onPRP,
+  .addtocartbuttononPRP {
+    width: 200px;
+    padding: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .returnpolicyonPRP p {
+    font-size: 0.75rem;
+  }
+
+  .modal_div_itself {
+    width: 90vw;
+    left: 5%;
+    top: 5%;
+    padding: 0.8rem;
+  }
+
+  .return_policy_heading {
+    font-size: 0.95rem;
+  }
+
+  .first_paragraph_for_return_policy,
+  .non-returnable-items-return-policy {
+    font-size: 0.85rem;
+  }
+
+  .headingforsimilartemsonPRP {
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+  }
+
+  .similar-items-umaylikeon-PRP {
+    padding: 0.5rem;
+  }
+}
+
+/* Extra Small Mobile (360px and below) */
+@media screen and (max-width: 360px) {
+  .bigimageonPRPbackground {
+    height: 320px;
+  }
+
+  .mainitemtitleforPRP {
+    font-size: 1.5rem;
+  }
+
+  .supportingtitlesentenceonPRP {
+    font-size: 0.7rem;
+  }
+
+  .starsonPRP {
+    font-size: 0.85rem;
+  }
+
+  .starsonPRP p {
+    font-size: 0.8rem;
+  }
+
+  .largeboldpricesonPRP {
+    font-size: 1.2rem;
+  }
+
+  .suggestedaymetntextonPRP {
+    font-size: 0.7rem;
+  }
+
+  .incrementofnumberofitemsonPRP {
+    width: 120px;
+    padding: 0.3rem;
+    font-size: 1rem;
+  }
+
+  .decrementonPRP,
+  .incrememntonPRP {
+    font-size: 0.9rem;
+  }
+
+  .itemsleftonPRP {
+    font-size: 0.7rem;
+  }
+
+  .buynoe-button-onPRP,
+  .addtocartbuttononPRP {
+    width: 180px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .returnpolicyonPRP p {
+    font-size: 0.7rem;
+  }
+
+  .modal_div_itself {
+    width: 95vw;
+    left: 2.5%;
+    padding: 0.7rem;
+  }
+
+  .return_policy_heading {
+    font-size: 0.9rem;
+  }
+
+  .clost-button-for-return-policy-modal {
+    font-size: 0.9rem;
+  }
+
+  .first_paragraph_for_return_policy,
+  .non-returnable-items-return-policy {
+    font-size: 0.8rem;
+  }
+
+  .headingforsimilartemsonPRP {
+    font-size: 1.1rem;
+  }
+}

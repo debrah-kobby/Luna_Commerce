@@ -150,3 +150,33 @@ slidesContainer.addEventListener("mouseover", () => clearInterval(interval));
 slidesContainer.addEventListener("mouseout", () => {
   interval = setInterval(autoSlide, 4000);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Create hamburger menu button
+  const secondNavItems = document.querySelector(".second_nav_items");
+  const hamburger = document.createElement("div");
+  hamburger.className = "hamburger-menu";
+  hamburger.innerHTML = `
+    <span></span>
+    <span></span>
+    <span></span>
+  `;
+
+  // Insert hamburger before the ul in second_nav_items
+  const secondNavUl = secondNavItems.querySelector("ul");
+  secondNavItems.insertBefore(hamburger, secondNavUl);
+
+  // Toggle menu on click
+  hamburger.addEventListener("click", function () {
+    this.classList.toggle("active");
+    secondNavUl.classList.toggle("active");
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (event) {
+    if (!secondNavItems.contains(event.target)) {
+      hamburger.classList.remove("active");
+      secondNavUl.classList.remove("active");
+    }
+  });
+});
