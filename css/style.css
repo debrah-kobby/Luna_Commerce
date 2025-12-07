@@ -82,10 +82,28 @@ body {
 }
 
 /* NAVIGATION */
+/* BODY */
+body {
+  background: rgba(219, 219, 219, 0.1);
+  backdrop-filter: blur(6px);
+}
+
+/* NAVIGATION - STICKY HEADER */
 header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
   display: flex;
   gap: 2rem;
   justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-bottom: 0;
+  padding: 0.5rem;
+  background: rgba(158, 158, 158, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  height: 80px;
 }
 
 .nav_bar_div ul {
@@ -138,7 +156,6 @@ header {
   position: relative;
   width: clamp(300px, 40vw, 480px);
   height: 90px;
-  margin-top: -1.8rem;
 }
 
 .clip_path1_div {
@@ -146,6 +163,7 @@ header {
   height: 100%;
   background: #ffffff;
   clip-path: polygon(21% 0, 71% 0, 100% 0, 86% 59%, 14% 59%, 0 0);
+  margin-top: 0.3rem;
 }
 
 .logo_text {
@@ -173,6 +191,7 @@ header {
   padding: 0.3rem;
   cursor: pointer;
 }
+
 /* Hamburger Menu - Hidden by default */
 .hamburger-menu {
   display: none;
@@ -210,15 +229,67 @@ header {
 .hamburger-menu.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
+/*CART BADGE - STICKY BOTTOM RIGHT*/
+.cartbadgediv {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartbadgediv:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.cartbadgeitself {
+  font-size: 1.5rem;
+  height: 60px;
+  width: 60px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cartbadgediv:hover .cartbadgeitself {
+  background-color: #333333;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.numberofcartbadgeitems {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 /* FIRST PAGE */
 .first_page {
   background: rgba(158, 158, 158, 0.1);
   backdrop-filter: blur(6px);
-  height: 100vh;
+  height: 91vh;
   padding: 1rem;
   margin: 1rem;
   border-radius: 10px;
+  margin-top: 0;
 }
 
 .hero_section {
@@ -1135,7 +1206,7 @@ header {
     max-height: 420px;
   }
 
-  .moving-words1{
+  .moving-words1 {
     margin-top: 15rem;
   }
   .brand-formoving-pics-section,
