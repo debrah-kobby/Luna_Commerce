@@ -18,7 +18,7 @@ console.log("script loaded");
 // PAGE LOAD & PRELOADER
 //========================================
 // Hide body content at the start
-document.body.style.overflow = "hidden"; // prevents scrolling
+/* document.body.style.overflow = "hidden"; // prevents scrolling
 document.querySelector(".first_page").style.display = "none";
 
 window.addEventListener("load", () => {
@@ -29,7 +29,59 @@ window.addEventListener("load", () => {
     console.log("Loader-Hidden");
   }, 2000); // 5 seconds
 });
+ */
 
+//========================================
+// PAGE LOAD & PRELOADER
+//========================================
+function showLoader() {
+  document.body.style.overflow = "hidden";
+  document.querySelector(".first_page").style.display = "none";
+  loaderContainer.classList.remove("loader-container-hidden");
+}
+
+function hideLoader() {
+  document.querySelector(".first_page").style.display = "block";
+  document.body.style.overflow = "auto";
+  loaderContainer.classList.add("loader-container-hidden");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showLoader();
+});
+window.addEventListener("load", () => {
+  hideLoader();
+});
+
+const originalFetch = window.fetch;
+let requestedFetches = 0;
+
+window.fetch = async function (...arg) {
+  requestedFetches++;
+  showLoader();
+
+  try {
+    const response = await originalFetch(...arg);
+    return response;
+  } catch (error) {
+    console.error("Fetch failed: " + error);
+    throw error;
+  } finally {
+    requestedFetches--;
+    if (requestedFetches === 0) {
+      hideLoader();
+    }
+  }
+};
+
+document.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    if (link.origin === location.origin) {
+      showLoader();
+      // browser will naturally navigate
+    }
+  });
+});
 //========================================
 // NAVIGATION EVENT LISTENERS
 //========================================

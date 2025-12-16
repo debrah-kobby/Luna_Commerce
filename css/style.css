@@ -30,9 +30,9 @@ input {
   padding: 0.2rem;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 body {
   background: rgba(219, 219, 219, 0.1);
@@ -80,7 +80,9 @@ body {
 .loader-container {
   height: 100vh;
 }
-
+.loader-container-hidden {
+  display: none;
+}
 /* NAVIGATION */
 /* BODY */
 body {
