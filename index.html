@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +12,12 @@
     <title>Luna Commerce</title>
   </head>
   <body>
+    <div class="cartbadgediv">
+      <div class="cartbadgeitself">
+        <i class="fa-solid fa-cart-arrow-down"></i>
+      </div>
+      <div class="numberofcartbadgeitems">0</div>
+    </div>
     <div class="loader-container flex-center loader-container-hidden">
       <lottie-player
         src="assets/LunaBigger.json"
@@ -105,12 +111,7 @@
         </div>
       </section>
     </article>
-    <div class="cartbadgediv">
-      <div class="cartbadgeitself">
-        <i class="fa-solid fa-cart-arrow-down"></i>
-      </div>
-      <div class="numberofcartbadgeitems">0</div>
-    </div>
+
     <main>
       <section class="moving-words1">
         <div class="movingWORDSITSELF1 absolute font-exo">
@@ -135,12 +136,27 @@
           >
             <i class="fa-solid fa-circle-dot"></i>&nbsp;VRITZZ
           </div>
-          <div>
+          <div class="moving_pictures_picture_div">
             <img
               src="assets/M1forMV-removebg-preview.png"
               alt=""
+              class="image-on-moving-pics-section absolute moving_pictures_picture_div_active"
+            />
+            <img
+              src="assets/M2forMV-removebg-preview.png"
+              alt=""
               class="image-on-moving-pics-section absolute"
             />
+            <img
+              src="assets/M3forMV-removebg-preview.png"
+              alt=""
+              class="image-on-moving-pics-section absolute"
+            />
+            <!-- <img
+              src="assets/M1forMV-removebg-preview.png"
+              alt=""
+              class="image-on-moving-pics-section absolute"
+            /> -->
           </div>
         </div>
       </section>

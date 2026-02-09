@@ -10,9 +10,30 @@ let seeAllButton = document.querySelector(".see_all_items_button_on_main_page");
 let firstLookBookButton = document.querySelector(".toplookbookconnection p");
 const slidesContainer = document.querySelector(".slides-container");
 const slides = document.querySelectorAll(".first-image-div-on-top-picks");
+let movingpicturesimages = document.querySelector(
+  ".image-on-moving-pics-section",
+);
 let index = 0;
 
-console.log("script loaded");
+console.log(
+  "%c⚡ Prince Debrah Bessah Sam - Luna Commerce JS Loaded ⚡",
+  "color: white; background: purple; font-size: 16px; font-weight: bold; padding: 4px; border-radius: 4px;",
+);
+
+window.AppInfo = {
+  developer: "Prince Debrah Bessah Sam",
+  version: "1.0.0",
+  date: "2025-12-16",
+};
+
+console.log(
+  "%cApp loaded by %c%s %c(v%s)",
+  "font-weight:bold;",
+  "color: purple;",
+  window.AppInfo.developer,
+  "color: grey;",
+  window.AppInfo.version,
+);
 
 //========================================
 // PAGE LOAD & PRELOADER
@@ -232,3 +253,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+//MOVING PICTURES SECTION PICTURE CHANGE
+let MVpicDiv = document.querySelector(".moving_pictures_picture_div");
+
+let movingPictures = document.querySelectorAll(".image-on-moving-pics-section");
+
+console.log(movingPictures);
+let counter = 0;
+
+setInterval(() => {
+  movingPictures[counter].classList.remove(
+    "moving_pictures_picture_div_active",
+  );
+  counter = (counter + 1) % movingPictures.length;
+  movingPictures[counter].classList.add("moving_pictures_picture_div_active");
+}, 3000);
+
+console.log(movingPictures.length);
