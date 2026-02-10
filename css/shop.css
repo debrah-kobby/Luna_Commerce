@@ -73,6 +73,7 @@ body.loading main {
   height: 280px;
   object-fit: cover;
   margin-top: 1rem;
+  object-position: center;
 }
 .shophtmlbanner {
   /* background-color: rgb(160, 160, 160); */
