@@ -63,6 +63,16 @@ document.addEventListener("click", (e) => {
   }
 });
 
+let changingBanners = document.querySelectorAll(".bannerschange");
+console.log(changingBanners);
+
+let counter = 0;
+setInterval(() => {
+  changingBanners[counter].classList.remove("activebanner");
+  counter = (counter + 1) % changingBanners.length;
+  changingBanners[counter].classList.add("activebanner");
+}, 5000);
+
 /* const originalFetch = window.fetch;
 let activeFetches = 0;
 

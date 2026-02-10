@@ -68,12 +68,28 @@ body.loading main {
   cursor: pointer;
 }
 
-.updatedshopbanner img {
+.updatedshopbanner {
+  position: relative;
   width: 100%;
-  height: 280px;
-  object-fit: cover;
+  height: 300px;
   margin-top: 1rem;
+  overflow: hidden;
+}
+
+.bannerschange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.activebanner {
+  opacity: 1;
 }
 .shophtmlbanner {
   /* background-color: rgb(160, 160, 160); */
@@ -90,6 +106,7 @@ body.loading main {
   position: relative;
   padding: 1rem;
 }
+
 .grabupto50 {
   position: absolute;
   font-size: 2rem;
@@ -123,6 +140,62 @@ body.loading main {
 .shoeimageonbanner1 img {
   border-radius: 15px;
 }
+/*CART BADGE - STICKY BOTTOM RIGHT*/
+.cartbadgediv {
+  /* This forces the element to the viewport regardless of parents */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  /* High z-index to stay above everything */
+  z-index: 99999;
+
+  /* Ensure it doesn't disappear */
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+
+.cartbadgediv:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.cartbadgeitself {
+  font-size: 1.5rem;
+  height: 60px;
+  width: 60px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cartbadgediv:hover .cartbadgeitself {
+  background-color: #333333;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.numberofcartbadgeitems {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .buttonsundershopbanner {
   margin: 1rem;
@@ -141,10 +214,10 @@ body.loading main {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: black;
-  background-color: rgb(197, 197, 197);
+  color: white;
+  background-color: black;
   padding: 0.4rem;
-  width: 80px;
+  width: 120px;
   border-radius: 15px;
   font-family: "Exo 2", sans-serif;
 
@@ -157,7 +230,23 @@ body.loading main {
 .buttonsundershopbanner a.button1underbanner:hover {
   background-color: rgb(170, 170, 170);
 }
+#blackFridaybutton {
+  background-color: blue;
+  color: black;
+  font-weight: bold;
+  animation: blackFridayBounce 1s ease-in-out infinite;
+  width: 140px;
+}
+@keyframes blackFridayBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
+  50% {
+    transform: translateY(-20px);
+  }
+}
 .featureditemssection,
 .trendingsectioninshop,
 .menssectiononshophtml,
@@ -209,7 +298,11 @@ body.loading main {
   font-size: 1.1rem;
   width: 30px;
   height: 30px;
-  background-color: white;
+  background: rgba(0, 0, 255, 0.144);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -257,8 +350,17 @@ body.loading main {
   border: 1px solid black;
   border-radius: 15px;
   width: 120px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.15);
   margin-top: 0.3rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+.addtocardbuttononitemcardSh:hover {
+  scale: 1.05;
+  transition: scale 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .overalldivforfeaturesitemcards,
@@ -273,6 +375,31 @@ body.loading main {
   margin-top: 1rem;
   flex-wrap: wrap;
   padding: 1rem;
+}
+
+.main_page_copyright {
+  display: flex;
+  justify-content: center;
+  font-family: "Exo 2", sans-serif;
+  gap: 1rem;
+}
+.main_page_copyright i {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  margin-top: -0.4rem;
+  transition: transform 0.3s ease-in-out;
+  animation: blackFridayBounce 0.3s ease-in-out infinite;
+}
+.main_page_copyright i:hover {
+  cursor: pointer;
+  transform: scale(1.07);
+  box-shadow: 0 4px 10px black;
 }
 
 /* ===================================

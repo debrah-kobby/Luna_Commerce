@@ -12,7 +12,13 @@
     <title>Luna Commerce</title>
   </head>
   <body>
-    <header class="header_for_shophtml">
+    <div class="cartbadgediv">
+      <div class="cartbadgeitself">
+        <i class="fa-solid fa-cart-arrow-down"></i>
+      </div>
+      <div class="numberofcartbadgeitems">0</div>
+    </div>
+    <header class="header_for_shophtml" id="pageheader">
       <div class="nav_bar_div_forShop first_nav_items">
         <ul>
           <li><a href="index.html">HOME</a></li>
@@ -47,7 +53,9 @@
             >
           </li>
           <li class="buttons_on_nav">
-            <button class="sign-up-button-1">Sign Up/In</button>
+            <button class="sign-up-button-1 bg-black rounded-md">
+              Sign Up/In
+            </button>
             <button class="lock_icon">
               <i class="fa-solid fa-lock"></i>
             </button>
@@ -57,7 +65,7 @@
     </header>
 
     <main>
-      <section>
+      <section id="pagebanner">
         <!--  <div class="shophtmlbanner">
           <p class="grabupto50">GRAB UP TO 50% OFF OF SELECTED ITEMS</p>
           <button class="buynowonbanner">Buy Now</button>
@@ -70,13 +78,28 @@
           </div>
         </div> -->
         <div class="updatedshopbanner">
-          <img src="assets/newblueshopbanner2.jpg" alt="" />
+          <img
+            src="assets/newblueshopbanner2.jpg"
+            alt=""
+            class="bannerschange activebanner"
+          />
+          <img
+            src="assets/black_friday_banner1_01.jpg"
+            alt=""
+            class="bannerschange"
+          />
         </div>
         <div class="buttonsundershopbanner">
           <a href="#shoessection" class="button1underbanner">Shoes</a>
           <a href="#jacketssection" class="button1underbanner">Jackets</a>
           <a href="#mensection" class="button1underbanner">Men</a>
           <a href="#womensection" class="button1underbanner">Women</a>
+          <a
+            href="#womensection"
+            class="button1underbanner"
+            id="blackFridaybutton"
+            >Black Friday
+          </a>
         </div>
       </section>
 
@@ -102,37 +125,7 @@
 
       <section class="shoessectiononshophtml" id="shoessection">
         <p class="shoesectiontititleSh">Shoes</p>
-        <div class="overalldivforshoesitemscardsSh">
-          <div class="itemcardonshoppage">
-            <img
-              src="assets/pumashoe1.jpg"
-              alt=""
-              class="featureditemsimage"
-              width="200"
-              height="50"
-            />
-            <div class="itembackgroundonitemcardSh"></div>
-            <div class="loveicononfeatureditems">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-            <div class="nameandpricedivonitemcardSh">
-              <p class="itemnameonitemcardSh">Name</p>
-              <p class="itempriceonitemcardsh">$99.99</p>
-            </div>
-            <p class="itemdescriptiononitemcardSh">
-              This is the item card desscription
-            </p>
-            <div class="staricononitemcardSh">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <p>(233)</p>
-            </div>
-            <button class="addtocardbuttononitemcardSh">Add to Cart</button>
-          </div>
-        </div>
+        <div class="overalldivforshoesitemscardsSh"></div>
       </section>
 
       <section class="jacketsssectiononshophtml" id="jacketssection">
@@ -142,7 +135,10 @@
     </main>
 
     <footer>
-      <div class="main_page_copyright">&copy;LuNa Idustries 2025</div>
+      <div class="main_page_copyright">
+        &copy;LuNa Idustries 2025
+        <a href="#pagebanner"><i class="fa-solid fa-arrow-up"></i></a>
+      </div>
     </footer>
     <script type="module" src="js/products.js"></script>
   </body>
