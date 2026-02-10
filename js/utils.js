@@ -94,5 +94,5 @@ export function wishlistToast() {
   // Hide after 3 seconds
   setTimeout(() => {
     wishlistsToast.style.display = "none";
-  }, 30000); // 3000ms = 3 seconds
+  }, 3000); // 3000ms = 3 seconds
 }

@@ -5,20 +5,20 @@ import { createProductCard, fetchFeatured, fetchCategory } from "./utils.js";
 // DOM ELEMENTS - SECTION CONTAINERS
 //========================================
 const featuredContainer = document.querySelector(
-  ".overalldivforfeaturesitemcards"
+  ".overalldivforfeaturesitemcards",
 );
 const menContainer = document.querySelector(".overalldivformensitemscardsSh");
 const womenContainer = document.querySelector(
-  ".overalldivforwomenssitemscardsSh"
+  ".overalldivforwomenssitemscardsSh",
 );
 const accessoriesContainer = document.querySelector(
-  ".overalldivforaccessoriessitemscardsSh"
+  ".overalldivforaccessoriessitemscardsSh",
 );
 const shoesContainer = document.querySelector(
-  ".overalldivforshoesitemscardsSh"
+  ".overalldivforshoesitemscardsSh",
 );
 const jacketsContainer = document.querySelector(
-  ".overalldivforjacketsitemscardsSh"
+  ".overalldivforjacketsitemscardsSh",
 );
 
 //========================================
@@ -47,7 +47,7 @@ document.addEventListener("click", (e) => {
     const cartproductCard = e.target.closest(".itemcardonshoppage");
     const cartproduct = JSON.parse(cartproductCard.dataset.product); //TO GET THE SINGLE ITEM CLICKED ON
 
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];//GET FOMR TEH LOCALSTORAGE THE CART 
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || []; //GET FOMR TEH LOCALSTORAGE THE CART
     cartItems.push(cartproduct);
     localStorage.setItem("cart", JSON.stringify(cartItems));
 
@@ -62,3 +62,32 @@ document.addEventListener("click", (e) => {
     window.location.href = "/product.html";
   }
 });
+
+/* const originalFetch = window.fetch;
+let activeFetches = 0;
+
+window.fetch = async (...args) => {
+  activeFetches++;
+  showLoader();
+
+  try {
+    return await originalFetch(...args);
+  } finally {
+    activeFetches--;
+    checkIfReady();
+  }
+};
+
+let pageLoaded = false;
+
+window.addEventListener("load", () => {
+  pageLoaded = true;
+  checkIfReady();
+});
+function checkIfReady() {
+  if (pageLoaded && activeFetches === 0) {
+    hideLoader();
+    document.body.classList.remove("loading");
+  }
+}
+ */

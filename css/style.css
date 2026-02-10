@@ -582,10 +582,26 @@ header {
 .category-and-wishlist {
   display: flex;
   position: absolute;
-  left: 57%;
+  left: 84%;
   top: 2%;
 }
+.add-to-cart-on-main-page {
+  position: absolute;
+  top: 2%;
+  right: 67%;
+}
+.add-to-cart-on-main-page-button {
+  padding: 0.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  font-family: "Exo 2", sans-serif;
+  font-size: 0.9rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
 .category-on-main-page-items {
   padding: 0.4rem;
   width: 85px;
@@ -594,6 +610,22 @@ header {
 .wishlist-icon-on-main-page-items {
   width: 30px;
   height: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.add-to-cart-on-main-page-button:hover {
+  cursor: pointer;
+}
+.wishlist-icon-on-main-page-items:hover {
+  cursor: pointer;
 }
 
 /* SEE ALL BUTTON */
@@ -741,18 +773,19 @@ header {
 .toastforwishlist1 {
   width: 370px;
   height: 60px;
-  background-color: hsla(120, 84%, 39%, 0.397);
+  background-color: hsla(239, 84%, 39%, 0.397);
   border-radius: 15px;
   padding: 0.5rem;
-  border: 2px solid green;
+  border: 2px solid blue;
   box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3);
   font-weight: bold;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 17%;
+  left: 85%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  display: none; /* ✅ Make sure this is the ONLY display property */
+  display: none; 
+  color: white;/* ✅ Make sure this is the ONLY display property */
 }
 
 .correctnadtextintoastforwish {
@@ -766,7 +799,7 @@ header {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  color: green;
+  color: blue;
 }
 .correct_for_wishlist_toast {
   display: flex;

@@ -1,4 +1,12 @@
 /*SHOP HTML*/
+body.loading {
+  overflow: hidden;
+}
+
+body.loading main {
+  opacity: 0;
+}
+
 .header_for_shophtml {
   padding: 0.5rem;
   margin-top: 1.5rem;
@@ -60,6 +68,12 @@
   cursor: pointer;
 }
 
+.updatedshopbanner img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  margin-top: 1rem;
+}
 .shophtmlbanner {
   /* background-color: rgb(160, 160, 160); */
   background: linear-gradient(

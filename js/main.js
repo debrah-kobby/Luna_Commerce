@@ -174,13 +174,12 @@ function displayProducts(products) {
         </div>
       </div>
       <div class="category-and-wishlist">
-        <div class="category-on-main-page-items">
-          <p>${truncatedCategory}</p>
-        </div>
+        
         <div class="wishlist-icon-on-main-page-items">
           <i class="fa-regular fa-heart"></i>
         </div>
       </div>
+      <div class="add-to-cart-on-main-page"><button class="add-to-cart-on-main-page-button">Add to Cart</button></div>
     `;
 
     // Click on the product card (except wishlist)
@@ -196,6 +195,14 @@ function displayProducts(products) {
       wishlistIcon.classList.toggle("fa-solid");
       wishlistIcon.classList.toggle("fa-regular");
       wishlistToast();
+    });
+
+    const addToCartGlass = productCard.querySelector(
+      ".add-to-cart-on-main-page-button",
+    );
+    addToCartGlass.addEventListener("click", (e) => {
+      e.stopPropagation();
+      window.location.href = "cart.html";
     });
 
     container.appendChild(productCard);
