@@ -1,11 +1,238 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luna Wish</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="assets/black_moon_luna.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="cartbadgediv">
+      <div class="cartbadgeitself">
+        <i class="fa-solid fa-cart-arrow-down"></i>
+      </div>
+      <div class="numberofcartbadgeitems">0</div>
+    </div>
+    <div class="loader-container flex-center loader-container-hidden">
+      <lottie-player
+        src="assets/LunaBigger.json"
+        background="transparent"
+        speed="1"
+        style="width: 220px; height: 220px"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+    <header class="mainpageheader">
+      <div class="nav_bar_div first_nav_items">
+        <ul>
+          <li><a href="shop.html">SHOP</a></li>
+          <li><a href="shop.html#mensection">MEN</a></li>
+          <li><a href="shop.html#womensection">WOMEN</a></li>
+          <li><a href="shop.html#trendingsection">TRENDING</a></li>
+        </ul>
+      </div>
+
+      <div class="nav_bar_div nav_logo">
+        <div class="clip_path1_div"></div>
+        <p class="logo_text absolute">
+          <img
+            src="assets/black_moon_luna-removebg-preview(1).png"
+            alt=""
+            width="170"
+            height="150"
+          />
+        </p>
+      </div>
+
+      <div class="nav_bar_div second_nav_items">
+        <ul>
+          <li>
+            <a href="wishlist.html"
+              ><i class="fa-regular fa-star"></i>WISHLIST</a
+            >
+          </li>
+          <li>
+            <a href="cart.html"
+              ><i class="fa-solid fa-cart-shopping"></i>CART</a
+            >
+          </li>
+          <li class="buttons_on_nav">
+            <button class="sign-up-button-1 bg-black rounded-md">
+              Sign Up/In
+            </button>
+            <button class="lock_icon">
+              <i class="fa-solid fa-lock"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="overall_div_for_wishlist_page">
+        <div class="div_for_wishlist_side_profile">
+          <div class="first_part_of_profile_section">
+            <div class="profile_picture_on_wishlist">
+              <img src="assets/profilepic1.jpg" alt="Profile Pic" />
+            </div>
+            <div class="wishlistprofile_name">
+              <p class="font-exo">debrah_kobby</p>
+            </div>
+            <div class="div_stars_on_wishlist_profile font-exo">
+              <div class="numberofstarswishlistprofile">5.0</div>
+              <div class="stars_on_wishlist_profile">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <div class="addinfobutononwishlistprofile">
+              <button class="font-exo">Add Info</button>
+            </div>
+          </div>
+          <hr />
+          <div class="second_part_of_wishlist_profiele_Section">
+            <div class="homes_second_wishlist_prof_sec home-onwishlistprofile">
+              <i class="fa-solid fa-house"></i>Home
+            </div>
+            <div class="homes_second_wishlist_prof_sec">
+              <i class="fa-solid fa-chart-bar"></i>Dashboard
+            </div>
+            <div
+              class="homes_second_wishlist_prof_sec wishlist_butotn_on_wishlist_profile"
+            >
+              <i class="fa-solid fa-star"></i>Wishlist
+            </div>
+            <div
+              class="homes_second_wishlist_prof_sec support_on_wishlist_profile"
+            >
+              <i class="fa-solid fa-circle-info"></i>Support
+            </div>
+          </div>
+          <div class="shop_button_on_wishlist_profile font-exo">
+            <button>Shop</button>
+          </div>
+        </div>
+        <div class="div_fior_wishlist_right_section">
+          <div class="wishlist_heading_on_right_Side">
+            <p class="font-exo">Wishlist</p>
+            <select
+              name="wishlist_category"
+              id="wishlist_category"
+              class="font-exo"
+            >
+              <option value="All" selected>All</option>
+              <option value="shoes">Shoes</option>
+              <option value="shoes">Shoes</option>
+              <option value="shoes">Shoes</option>
+            </select>
+          </div>
+          <div class="actual_wishlists_items_overall_div">
+            <div class="individual_wishlist_cards">
+              <div class="container_for_wishlist_item_image">
+                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
+              </div>
+              <div class="name_and_date_on_wishlist_items font-exo">
+                <p class="name_on_wishlist_item">
+                  X-box Series X With Series Y
+                </p>
+                <p class="date_on_wishlist_item">24 Aug</p>
+              </div>
+              <div
+                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
+              >
+                <div class="price_on_wishlist_item font-exo">$1,000</div>
+                <div class="wish_and_delete_on_wishlist_item">
+                  <div class="wish_on_wishlist_item">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <div class="delete_on_wishlist_item">
+                    <i class="fa-solid fa-trash"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="individual_wishlist_cards">
+              <div class="container_for_wishlist_item_image">
+                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
+              </div>
+              <div class="name_and_date_on_wishlist_items font-exo">
+                <p class="name_on_wishlist_item">
+                  X-box Series X With Series Y
+                </p>
+                <p class="date_on_wishlist_item">24 Aug</p>
+              </div>
+              <div
+                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
+              >
+                <div class="price_on_wishlist_item font-exo">$1,000</div>
+                <div class="wish_and_delete_on_wishlist_item">
+                  <div class="wish_on_wishlist_item">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <div class="delete_on_wishlist_item">
+                    <i class="fa-solid fa-trash"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="individual_wishlist_cards">
+              <div class="container_for_wishlist_item_image">
+                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
+              </div>
+              <div class="name_and_date_on_wishlist_items font-exo">
+                <p class="name_on_wishlist_item">
+                  X-box Series X With Series Y
+                </p>
+                <p class="date_on_wishlist_item">24 Aug</p>
+              </div>
+              <div
+                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
+              >
+                <div class="price_on_wishlist_item font-exo">$1,000</div>
+                <div class="wish_and_delete_on_wishlist_item">
+                  <div class="wish_on_wishlist_item">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <div class="delete_on_wishlist_item">
+                    <i class="fa-solid fa-trash"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="individual_wishlist_cards">
+              <div class="container_for_wishlist_item_image">
+                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
+              </div>
+              <div class="name_and_date_on_wishlist_items font-exo">
+                <p class="name_on_wishlist_item">
+                  X-box Series X With Series Y
+                </p>
+                <p class="date_on_wishlist_item">24 Aug</p>
+              </div>
+              <div
+                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
+              >
+                <div class="price_on_wishlist_item font-exo">$1,000</div>
+                <div class="wish_and_delete_on_wishlist_item">
+                  <div class="wish_on_wishlist_item">
+                    <i class="fa-solid fa-heart"></i>
+                  </div>
+                  <div class="delete_on_wishlist_item">
+                    <i class="fa-solid fa-trash"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/wishlist.js"></script>
+  </body>
 </html>

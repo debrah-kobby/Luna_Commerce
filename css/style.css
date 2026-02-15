@@ -4,6 +4,7 @@
 @import url("shop.css");
 @import url("product.css");
 @import url("cart.css");
+@import url("wishlist.css");
 
 /* RESET */
 * {
@@ -592,14 +593,14 @@ header {
 }
 .add-to-cart-on-main-page-button {
   padding: 0.2rem;
-  background: rgba(255, 255, 255, 0.15);
+
   border-radius: 7px;
   font-family: "Exo 2", sans-serif;
   font-size: 0.9rem;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.25);
-
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 .category-on-main-page-items {
@@ -784,8 +785,8 @@ header {
   left: 85%;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  display: none; 
-  color: white;/* ✅ Make sure this is the ONLY display property */
+  display: none;
+  color: white; /* ✅ Make sure this is the ONLY display property */
 }
 
 .correctnadtextintoastforwish {
