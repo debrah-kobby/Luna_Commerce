@@ -10,17 +10,17 @@ export function createProductCard(product) {
 
   div.innerHTML = `
     <img src="${product.image}" alt="${
-    product.title
-  }" class="featureditemsimage" width="200" height="140">
+      product.title
+    }" class="featureditemsimage" width="200" height="140">
     <div class="itembackgroundonitemcardSh"></div>
     <div class="loveicononfeatureditems"><i class="fa-regular fa-heart"></i></div>
     <div class="nameandpricedivonitemcardSh">
-      <p class="itemnameonitemcardSh">${product.title.slice(0, 20)}...</p>
+      <p class="itemnameonitemcardSh">${product.title.slice(0, 18)}...</p>
       <p class="itempriceonitemcardsh">$${product.price.toFixed(2)}</p>
     </div>
     <p class="itemdescriptiononitemcardSh">${product.description.slice(
       0,
-      60
+      60,
     )}...</p>
     <div class="staricononitemcardSh">
       <i class="fa-solid fa-star"></i>
@@ -52,7 +52,7 @@ export function createProductCard(product) {
 export async function fetchCategory(category, container, limit = 4) {
   try {
     const response = await fetch(
-      `https://fakestoreapi.com/products/category/${category}`
+      `https://fakestoreapi.com/products/category/${category}`,
     );
     const data = await response.json();
 
@@ -79,7 +79,7 @@ export async function fetchFeatured(container, limit = 6) {
     container.innerHTML = "";
 
     random.forEach((product) =>
-      container.appendChild(createProductCard(product))
+      container.appendChild(createProductCard(product)),
     );
   } catch (error) {
     console.error("Error fetching featured:", error);
@@ -94,5 +94,15 @@ export function wishlistToast() {
   // Hide after 3 seconds
   setTimeout(() => {
     wishlistsToast.style.display = "none";
+  }, 3000); // 3000ms = 3 seconds
+}
+export function addtoCartToast() {
+  const addtoCartToast = document.querySelector(".toastforaddtocart");
+  if (!addtoCartToast) return;
+  addtoCartToast.style.display = "flex";
+
+  // Hide after 3 seconds
+  setTimeout(() => {
+    addtoCartToast.style.display = "none";
   }, 3000); // 3000ms = 3 seconds
 }

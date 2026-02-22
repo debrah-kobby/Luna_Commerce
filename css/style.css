@@ -771,7 +771,8 @@ header {
   }
 }
 
-.toastforwishlist1 {
+.toastforwishlist1,
+.toastforaddtocart {
   width: 370px;
   height: 60px;
   background-color: hsla(239, 84%, 39%, 0.397);
@@ -807,9 +808,43 @@ header {
   align-self: center;
 }
 
-/* ===================================
+.divAfterexists {
+  position: fixed;
+  top: 17%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 0.4rem;
+  width: 350px;
+  height: 40px;
+  background-color: hsla(239, 84%, 39%, 0.397);
+  border-radius: 15px;
+  padding: 0.5rem;
+  border: 2px solid blue;
+  box-shadow: 0 4px 6px rgba(0, 128, 0, 0.3);
+
+  color: black;
+}
+.paragraph_for_view_carts_after_eists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: "Exo 2", sans-serif;
+}
+.view_cart_link_after_exists {
+  color: white;
+  text-decoration: underline;
+  transition: all 0.3s ease-in-out;
+}
+.view_cart_link_after_exists:hover {
+  cursor: pointer;
+  color: blue;
+}
+/* 
    LUNA COMMERCE - MOBILE MEDIA QUERIES
-   =================================== */
+   */
 
 /* Tablets and Medium Screens (1024px and below) */
 @media screen and (max-width: 1024px) {

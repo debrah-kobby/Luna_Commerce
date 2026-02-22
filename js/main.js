@@ -1,6 +1,8 @@
 //MAIN JAVASCRIPT FILE
 //IMPORT
+
 import { wishlistToast } from "./utils.js";
+import { addtoCartToast } from "./utils.js";
 //========================================
 // DOM ELEMENTS
 //========================================
@@ -14,6 +16,7 @@ let movingpicturesimages = document.querySelector(
   ".image-on-moving-pics-section",
 );
 let index = 0;
+const cartBadgeItemNumber = document.querySelector(".numberofcartbadgeitems");
 
 console.log(
   "%c⚡ Prince Debrah Bessah Sam - Luna Commerce JS Loaded ⚡",
@@ -159,7 +162,7 @@ function displayProducts(products) {
 
     const productCard = document.createElement("div");
     productCard.classList.add("item-card-on-main-page");
-
+    productCard.dataset.product = JSON.stringify(product);
     productCard.innerHTML = `
       <img src="${product.image}" width="270" height="220" />
       <div class="name-and-price-and-arrow-on-main-page-items">
@@ -200,9 +203,51 @@ function displayProducts(products) {
     const addToCartGlass = productCard.querySelector(
       ".add-to-cart-on-main-page-button",
     );
+
     addToCartGlass.addEventListener("click", (e) => {
       e.stopPropagation();
-      window.location.href = "cart.html";
+
+      const cartProduct = JSON.parse(productCard.dataset.product);
+
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const exists = cartItems.find((item) => item.id === cartProduct.id);
+
+      if (exists) {
+        // CHECK IF TOAST ALREADY EXISTS
+        let existingToast = document.getElementById("cart-toast");
+
+        if (!existingToast) {
+          const div = document.createElement("div");
+          div.id = "cart-toast";
+          div.classList.add("divAfterexists");
+
+          div.innerHTML = `
+      <p class="paragraph_for_view_carts_after_eists">
+        Item Already in Cart - &nbsp
+        <span class="view_cart_link_after_exists">View Cart</span>
+      </p>
+    `;
+
+          document.body.appendChild(div);
+
+          existingToast = div;
+
+          setTimeout(() => {
+            existingToast.remove();
+          }, 2000);
+        }
+
+        return; // stop execution so item doesn't get added again
+      }
+
+      if (!exists) {
+        cartItems.push(cartProduct);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        /* cartBadgeItemNumber.textContent = `${cartItems.length}`; */
+        updateCartBadge();
+        addtoCartToast();
+      }
     });
 
     container.appendChild(productCard);
@@ -278,3 +323,12 @@ setInterval(() => {
 }, 3000);
 
 console.log(movingPictures.length);
+
+// Set cart badge count on page load
+export function updateCartBadge() {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  cartBadgeItemNumber.textContent = cartItems.length;
+}
+
+// Run on page load
+updateCartBadge();

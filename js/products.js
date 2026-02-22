@@ -47,11 +47,11 @@ document.addEventListener("click", (e) => {
     const cartproductCard = e.target.closest(".itemcardonshoppage");
     const cartproduct = JSON.parse(cartproductCard.dataset.product); //TO GET THE SINGLE ITEM CLICKED ON
 
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || []; //GET FOMR TEH LOCALSTORAGE THE CART
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || []; //GET FROM THE LOCALSTORAGE THE CART
     cartItems.push(cartproduct);
     localStorage.setItem("cart", JSON.stringify(cartItems));
 
-    window.location.href = "/cart.html";
+    /* window.location.href = "/cart.html"; */
   }
 
   // Navigate to Product Details

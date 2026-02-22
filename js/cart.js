@@ -9,8 +9,10 @@ const cartContainer = document.querySelector(".itemscontaineroncart");
 const decrementoncart = document.querySelector(".decrementoncart");
 const incrementoncart = document.querySelector(".incrementoncart");
 const numberofquantityoncart = document.querySelector(
-  ".numberofquantityoncart"
+  ".numberofquantityoncart",
 );
+const cartBadge = document.querySelector(".cartbadgediv");
+const cartBadgeItemNumber = document.querySelector(".numberofcartbadgeitems");
 
 //========================================
 // INITIALIZE CART ON PAGE LOAD
@@ -32,6 +34,7 @@ function renderCart() {
     cartContainer.innerHTML = "<p>Your cart is empty.</p>";
     cartContainer.classList.add("cartemptytext");
     cartObjectCount.textContent = "(0 products)";
+    cartBadgeItemNumber.textContent = "0";
     return;
   }
 
@@ -83,13 +86,14 @@ function renderCart() {
 
   // Update cart count display
   cartObjectCount.textContent = `( ${cartItems.length} products)`;
+  cartBadgeItemNumber.textContent = `${cartItems.length}`;
 
   // Remove Single Item Event Listeners
   document.querySelectorAll(".removecartitembutton").forEach((button) => {
     button.addEventListener("click", (e) => {
       const productIdToRemove = e.currentTarget.dataset.id;
       const updatedCart = cartItems.filter(
-        (item) => item.id !== parseInt(productIdToRemove)
+        (item) => item.id !== parseInt(productIdToRemove),
       );
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       renderCart();
