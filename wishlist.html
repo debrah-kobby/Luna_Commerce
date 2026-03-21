@@ -76,10 +76,10 @@
         <div class="div_for_wishlist_side_profile">
           <div class="first_part_of_profile_section">
             <div class="profile_picture_on_wishlist">
-              <img src="assets/profilepic1.jpg" alt="Profile Pic" />
+              <img src="assets/emptyprofilepic1.png" alt="Profile Pic" />
             </div>
             <div class="wishlistprofile_name">
-              <p class="font-exo">debrah_kobby</p>
+              <p class="font-exo">username</p>
             </div>
             <div class="div_stars_on_wishlist_profile font-exo">
               <div class="numberofstarswishlistprofile">5.0</div>
@@ -90,7 +90,7 @@
               </div>
             </div>
             <div class="addinfobutononwishlistprofile">
-              <button class="font-exo">Add Info</button>
+              <button class="font-exo">SignUp</button>
             </div>
           </div>
           <hr />
@@ -129,108 +129,53 @@
               <option value="shoes">Shoes</option>
               <option value="shoes">Shoes</option>
             </select>
-          </div>
-          <div class="actual_wishlists_items_overall_div">
-            <div class="individual_wishlist_cards">
-              <div class="container_for_wishlist_item_image">
-                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
-              </div>
-              <div class="name_and_date_on_wishlist_items font-exo">
-                <p class="name_on_wishlist_item">
-                  X-box Series X With Series Y
-                </p>
-                <p class="date_on_wishlist_item">24 Aug</p>
-              </div>
-              <div
-                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
-              >
-                <div class="price_on_wishlist_item font-exo">$1,000</div>
-                <div class="wish_and_delete_on_wishlist_item">
-                  <div class="wish_on_wishlist_item">
-                    <i class="fa-solid fa-heart"></i>
-                  </div>
-                  <div class="delete_on_wishlist_item">
-                    <i class="fa-solid fa-trash"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="individual_wishlist_cards">
-              <div class="container_for_wishlist_item_image">
-                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
-              </div>
-              <div class="name_and_date_on_wishlist_items font-exo">
-                <p class="name_on_wishlist_item">
-                  X-box Series X With Series Y
-                </p>
-                <p class="date_on_wishlist_item">24 Aug</p>
-              </div>
-              <div
-                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
-              >
-                <div class="price_on_wishlist_item font-exo">$1,000</div>
-                <div class="wish_and_delete_on_wishlist_item">
-                  <div class="wish_on_wishlist_item">
-                    <i class="fa-solid fa-heart"></i>
-                  </div>
-                  <div class="delete_on_wishlist_item">
-                    <i class="fa-solid fa-trash"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="individual_wishlist_cards">
-              <div class="container_for_wishlist_item_image">
-                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
-              </div>
-              <div class="name_and_date_on_wishlist_items font-exo">
-                <p class="name_on_wishlist_item">
-                  X-box Series X With Series Y
-                </p>
-                <p class="date_on_wishlist_item">24 Aug</p>
-              </div>
-              <div
-                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
-              >
-                <div class="price_on_wishlist_item font-exo">$1,000</div>
-                <div class="wish_and_delete_on_wishlist_item">
-                  <div class="wish_on_wishlist_item">
-                    <i class="fa-solid fa-heart"></i>
-                  </div>
-                  <div class="delete_on_wishlist_item">
-                    <i class="fa-solid fa-trash"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="individual_wishlist_cards">
-              <div class="container_for_wishlist_item_image">
-                <img src="assets/firstairpodpros-removebg-preview.png" alt="" />
-              </div>
-              <div class="name_and_date_on_wishlist_items font-exo">
-                <p class="name_on_wishlist_item">
-                  X-box Series X With Series Y
-                </p>
-                <p class="date_on_wishlist_item">24 Aug</p>
-              </div>
-              <div
-                class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item"
-              >
-                <div class="price_on_wishlist_item font-exo">$1,000</div>
-                <div class="wish_and_delete_on_wishlist_item">
-                  <div class="wish_on_wishlist_item">
-                    <i class="fa-solid fa-heart"></i>
-                  </div>
-                  <div class="delete_on_wishlist_item">
-                    <i class="fa-solid fa-trash"></i>
-                  </div>
-                </div>
-              </div>
+            <div class="clear_wishlist_div">
+              <i class="fa-solid fa-x"></i> &nbsp; Clear Wishlist
             </div>
           </div>
+          <div class="actual_wishlists_items_overall_div"></div>
+          <div class="emptywihslistdiv">Your Wishlist Is Empty</div>
         </div>
       </div>
     </main>
-    <script src="js/wishlist.js"></script>
+    <script src="js/wishlist.js" type="module"></script>
   </body>
 </html>
+
+<!-- <div class="container_for_wishlist_item_image">
+  <img src="${product.image}" alt="" />
+</div>
+<div class="name_and_date_on_wishlist_items font-exo">
+  <p class="name_on_wishlist_item">${product.name}</p>
+  <p class="date_on_wishlist_item"></p>
+</div>
+<div class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item">
+  <div class="price_on_wishlist_item font-exo">${product.price}</div>
+  <div class="wish_and_delete_on_wishlist_item">
+    <div class="wish_on_wishlist_item">
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <div class="delete_on_wishlist_item">
+      <i class="fa-solid fa-trash"></i>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="container_for_wishlist_item_image">
+  <img src="${product.image}" alt="" width="70" height="70" />
+</div>
+<div class="name_and_date_on_wishlist_items font-exo">
+  <p class="name_on_wishlist_item">${product.title}</p>
+  <p class="date_on_wishlist_item"></p>
+</div>
+<div class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item">
+  <div class="price_on_wishlist_item font-exo">${product.price}</div>
+  <div class="wish_and_delete_on_wishlist_item">
+    <div class="wish_on_wishlist_item">
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <div class="delete_on_wishlist_item">
+      <i class="fa-solid fa-trash"></i>
+    </div>
+  </div>
+</div>
+ -->

@@ -1,12 +1,24 @@
 //MAIN JAVASCRIPT FILE
 //IMPORT
 
-import { wishlistToast } from "./utils.js";
-import { addtoCartToast } from "./utils.js";
+import {
+  truncateTitle,
+  truncateCategory,
+  updateCartBadge,
+  getFromStorage,
+  saveToStorage,
+  hideLoader,
+  showLoader,
+  createCustomFetch,
+  addtoCart,
+  initWishlistIcon,
+  toggleWishlist,
+} from "./utils.js";
+
 //========================================
 // DOM ELEMENTS
 //========================================
-let loaderContainer = document.querySelector(".loader-container");
+
 let firstbuttons = document.querySelector(".buttons_on_first_page");
 let seeAllButton = document.querySelector(".see_all_items_button_on_main_page");
 let firstLookBookButton = document.querySelector(".toplookbookconnection p");
@@ -15,8 +27,8 @@ const slides = document.querySelectorAll(".first-image-div-on-top-picks");
 let movingpicturesimages = document.querySelector(
   ".image-on-moving-pics-section",
 );
+
 let index = 0;
-const cartBadgeItemNumber = document.querySelector(".numberofcartbadgeitems");
 
 console.log(
   "%c⚡ Prince Debrah Bessah Sam - Luna Commerce JS Loaded ⚡",
@@ -58,45 +70,15 @@ window.addEventListener("load", () => {
 //========================================
 // PAGE LOAD & PRELOADER
 //========================================
-function showLoader() {
-  document.body.style.overflow = "hidden";
-  document.querySelector(".first_page").style.display = "none";
-  loaderContainer.classList.remove("loader-container-hidden");
-}
-
-function hideLoader() {
-  document.querySelector(".first_page").style.display = "block";
-  document.body.style.overflow = "auto";
-  loaderContainer.classList.add("loader-container-hidden");
-}
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".first_page").style.display = "none";
   showLoader();
 });
 window.addEventListener("load", () => {
+  document.querySelector(".first_page").style.display = "block";
   hideLoader();
 });
-
-const originalFetch = window.fetch;
-let requestedFetches = 0;
-
-window.fetch = async function (...arg) {
-  requestedFetches++;
-  showLoader();
-
-  try {
-    const response = await originalFetch(...arg);
-    return response;
-  } catch (error) {
-    console.error("Fetch failed: " + error);
-    throw error;
-  } finally {
-    requestedFetches--;
-    if (requestedFetches === 0) {
-      hideLoader();
-    }
-  }
-};
 
 document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", (e) => {
@@ -106,6 +88,8 @@ document.querySelectorAll("a").forEach((link) => {
     }
   });
 });
+
+const customFetch = createCustomFetch();
 //========================================
 // NAVIGATION EVENT LISTENERS
 //========================================
@@ -130,7 +114,7 @@ firstLookBookButton.addEventListener("mouseover", (e) => {
 //========================================
 async function getProducts(limit = 6) {
   try {
-    const res = await fetch("https://fakestoreapi.com/products");
+    const res = await customFetch("https://fakestoreapi.com/products");
     const data = await res.json();
 
     // only take the first 'limit' items
@@ -140,16 +124,6 @@ async function getProducts(limit = 6) {
   } catch (error) {
     console.error("Error fetching products:", error);
   }
-}
-
-function truncateTitle(title, maxLength = 20) {
-  return title.length > maxLength ? title.slice(0, maxLength) + "..." : title;
-}
-
-function truncateCategory(category, maxLength) {
-  return category.length > maxLength
-    ? category.slice(0, maxLength) + "..."
-    : category;
 }
 
 function displayProducts(products) {
@@ -179,7 +153,7 @@ function displayProducts(products) {
       <div class="category-and-wishlist">
         
         <div class="wishlist-icon-on-main-page-items">
-          <i class="fa-regular fa-heart"></i>
+          <i class="fa-regular fa-heart wishlist_incon_on_MP"></i>
         </div>
       </div>
       <div class="add-to-cart-on-main-page"><button class="add-to-cart-on-main-page-button">Add to Cart</button></div>
@@ -187,17 +161,21 @@ function displayProducts(products) {
 
     // Click on the product card (except wishlist)
     productCard.addEventListener("click", () => {
-      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      saveToStorage("selectedProduct", product);
+
       window.location.href = "product.html";
     });
 
     // Wishlist icon click
     const wishlistIcon = productCard.querySelector(".fa-heart");
+
+    // Set initial icon state
+    initWishlistIcon(product, wishlistIcon);
+
+    // Handle click
     wishlistIcon.addEventListener("click", (e) => {
-      e.stopPropagation(); // prevents the card click
-      wishlistIcon.classList.toggle("fa-solid");
-      wishlistIcon.classList.toggle("fa-regular");
-      wishlistToast();
+      e.stopPropagation();
+      toggleWishlist(product, wishlistIcon);
     });
 
     const addToCartGlass = productCard.querySelector(
@@ -209,45 +187,7 @@ function displayProducts(products) {
 
       const cartProduct = JSON.parse(productCard.dataset.product);
 
-      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-      const exists = cartItems.find((item) => item.id === cartProduct.id);
-
-      if (exists) {
-        // CHECK IF TOAST ALREADY EXISTS
-        let existingToast = document.getElementById("cart-toast");
-
-        if (!existingToast) {
-          const div = document.createElement("div");
-          div.id = "cart-toast";
-          div.classList.add("divAfterexists");
-
-          div.innerHTML = `
-      <p class="paragraph_for_view_carts_after_eists">
-        Item Already in Cart - &nbsp
-        <span class="view_cart_link_after_exists">View Cart</span>
-      </p>
-    `;
-
-          document.body.appendChild(div);
-
-          existingToast = div;
-
-          setTimeout(() => {
-            existingToast.remove();
-          }, 2000);
-        }
-
-        return; // stop execution so item doesn't get added again
-      }
-
-      if (!exists) {
-        cartItems.push(cartProduct);
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-        /* cartBadgeItemNumber.textContent = `${cartItems.length}`; */
-        updateCartBadge();
-        addtoCartToast();
-      }
+      addtoCart(cartProduct);
     });
 
     container.appendChild(productCard);
@@ -323,12 +263,6 @@ setInterval(() => {
 }, 3000);
 
 console.log(movingPictures.length);
-
-// Set cart badge count on page load
-export function updateCartBadge() {
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  cartBadgeItemNumber.textContent = cartItems.length;
-}
 
 // Run on page load
 updateCartBadge();

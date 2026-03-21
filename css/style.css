@@ -808,6 +808,35 @@ header {
   align-self: center;
 }
 
+.toastforwishlistremove {
+  width: 370px;
+  height: 60px;
+  background-color: hsla(0, 84%, 39%, 0.397);
+  border-radius: 15px;
+  padding: 0.5rem;
+  border: 2px solid rgb(220, 50, 50);
+  box-shadow: 0 4px 6px rgba(220, 50, 50, 0.3);
+  font-weight: bold;
+  position: fixed;
+  top: 17%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: none;
+  color: white;
+}
+
+.remove_icon_toast i {
+  font-size: 1.8rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: rgb(220, 50, 50);
+}
+
+.remove_title_toast {
+  color: rgb(255, 100, 100);
+}
 .divAfterexists {
   position: fixed;
   top: 17%;
