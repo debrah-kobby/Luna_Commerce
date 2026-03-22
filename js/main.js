@@ -1,9 +1,5 @@
-//MAIN JAVASCRIPT FILE
-//IMPORT
-
 import {
   truncateTitle,
-  truncateCategory,
   updateCartBadge,
   getFromStorage,
   saveToStorage,
@@ -14,21 +10,6 @@ import {
   initWishlistIcon,
   toggleWishlist,
 } from "./utils.js";
-
-//========================================
-// DOM ELEMENTS
-//========================================
-
-let firstbuttons = document.querySelector(".buttons_on_first_page");
-let seeAllButton = document.querySelector(".see_all_items_button_on_main_page");
-let firstLookBookButton = document.querySelector(".toplookbookconnection p");
-const slidesContainer = document.querySelector(".slides-container");
-const slides = document.querySelectorAll(".first-image-div-on-top-picks");
-let movingpicturesimages = document.querySelector(
-  ".image-on-moving-pics-section",
-);
-
-let index = 0;
 
 console.log(
   "%c⚡ Prince Debrah Bessah Sam - Luna Commerce JS Loaded ⚡",
@@ -50,50 +31,54 @@ console.log(
   window.AppInfo.version,
 );
 
-//========================================
-// PAGE LOAD & PRELOADER
-//========================================
-// Hide body content at the start
-/* document.body.style.overflow = "hidden"; // prevents scrolling
-document.querySelector(".first_page").style.display = "none";
-
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loaderContainer.style.display = "none"; // Hide loader
-    document.querySelector(".first_page").style.display = "block"; // Show main content
-    document.body.style.overflow = "auto"; // allow scrolling again
-    console.log("Loader-Hidden");
-  }, 2000); // 5 seconds
-});
- */
-
-//========================================
-// PAGE LOAD & PRELOADER
-//========================================
-
+// hide hero until page fully loads
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".first_page").style.display = "none";
   showLoader();
+
+  // hamburger menu
+  const secondNavItems = document.querySelector(".second_nav_items");
+  const secondNavUl = secondNavItems.querySelector("ul");
+
+  const hamburger = document.createElement("div");
+  hamburger.className = "hamburger-menu";
+  hamburger.innerHTML = `<span></span><span></span><span></span>`;
+  secondNavItems.insertBefore(hamburger, secondNavUl);
+
+  hamburger.addEventListener("click", function () {
+    this.classList.toggle("active");
+    secondNavUl.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!secondNavItems.contains(event.target)) {
+      hamburger.classList.remove("active");
+      secondNavUl.classList.remove("active");
+    }
+  });
 });
+
 window.addEventListener("load", () => {
   document.querySelector(".first_page").style.display = "block";
   hideLoader();
 });
 
+// show loader on internal page navigation
 document.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", (e) => {
-    if (link.origin === location.origin) {
-      showLoader();
-      // browser will naturally navigate
-    }
+  link.addEventListener("click", () => {
+    if (link.origin === location.origin) showLoader();
   });
 });
 
 const customFetch = createCustomFetch();
-//========================================
-// NAVIGATION EVENT LISTENERS
-//========================================
-firstbuttons.addEventListener("click", (e) => {
+
+// navigation
+const firstbuttons = document.querySelector(".buttons_on_first_page");
+const seeAllButton = document.querySelector(
+  ".see_all_items_button_on_main_page",
+);
+const firstLookBookButton = document.querySelector(".toplookbookconnection p");
+
+firstbuttons.addEventListener("click", () => {
   window.location = "shop.html";
 });
 
@@ -101,7 +86,7 @@ seeAllButton.addEventListener("click", () => {
   window.location = "shop.html";
 });
 
-firstLookBookButton.addEventListener("click", (e) => {
+firstLookBookButton.addEventListener("click", () => {
   window.location = "shop.html";
 });
 
@@ -109,18 +94,12 @@ firstLookBookButton.addEventListener("mouseover", (e) => {
   e.target.style.cursor = "pointer";
 });
 
-//========================================
-// PRODUCT FUNCTIONS
-//========================================
+// fetch and display products
 async function getProducts(limit = 6) {
   try {
     const res = await customFetch("https://fakestoreapi.com/products");
     const data = await res.json();
-
-    // only take the first 'limit' items
-    const limitedProducts = data.slice(0, limit);
-
-    displayProducts(limitedProducts);
+    displayProducts(data.slice(0, limit));
   } catch (error) {
     console.error("Error fetching products:", error);
   }
@@ -132,7 +111,6 @@ function displayProducts(products) {
 
   products.forEach((product) => {
     const truncatedTitle = truncateTitle(product.title, 22);
-    const truncatedCategory = truncateCategory(product.category, 5);
 
     const productCard = document.createElement("div");
     productCard.classList.add("item-card-on-main-page");
@@ -151,107 +129,62 @@ function displayProducts(products) {
         </div>
       </div>
       <div class="category-and-wishlist">
-        
         <div class="wishlist-icon-on-main-page-items">
           <i class="fa-regular fa-heart wishlist_incon_on_MP"></i>
         </div>
       </div>
-      <div class="add-to-cart-on-main-page"><button class="add-to-cart-on-main-page-button">Add to Cart</button></div>
+      <div class="add-to-cart-on-main-page">
+        <button class="add-to-cart-on-main-page-button">Add to Cart</button>
+      </div>
     `;
 
-    // Click on the product card (except wishlist)
     productCard.addEventListener("click", () => {
       saveToStorage("selectedProduct", product);
-
       window.location.href = "product.html";
     });
 
-    // Wishlist icon click
     const wishlistIcon = productCard.querySelector(".fa-heart");
-
-    // Set initial icon state
     initWishlistIcon(product, wishlistIcon);
 
-    // Handle click
     wishlistIcon.addEventListener("click", (e) => {
       e.stopPropagation();
       toggleWishlist(product, wishlistIcon);
     });
 
-    const addToCartGlass = productCard.querySelector(
+    const addToCartBtn = productCard.querySelector(
       ".add-to-cart-on-main-page-button",
     );
-
-    addToCartGlass.addEventListener("click", (e) => {
+    addToCartBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-
-      const cartProduct = JSON.parse(productCard.dataset.product);
-
-      addtoCart(cartProduct);
+      addtoCart(JSON.parse(productCard.dataset.product));
     });
 
     container.appendChild(productCard);
   });
 }
 
-// Initialize products - show only 4 products
 getProducts(4);
 
-//========================================
-// IMAGE SLIDER / CAROUSEL
-//========================================
+// top picks carousel
+let index = 0;
+const slidesContainer = document.querySelector(".slides-container");
+const slides = document.querySelectorAll(".first-image-div-on-top-picks");
+
 function autoSlide() {
-  index++;
-  if (index >= slides.length) {
-    index = 0;
-  }
+  index = (index + 1) % slides.length;
   slidesContainer.style.transform = `translateX(-${index * 100}%)`;
 }
 
 let interval = setInterval(autoSlide, 3000);
-
 slidesContainer.addEventListener("mouseover", () => clearInterval(interval));
-
 slidesContainer.addEventListener("mouseout", () => {
   interval = setInterval(autoSlide, 4000);
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Create hamburger menu button
-  const secondNavItems = document.querySelector(".second_nav_items");
-  const hamburger = document.createElement("div");
-  hamburger.className = "hamburger-menu";
-  hamburger.innerHTML = `
-    <span></span>
-    <span></span>
-    <span></span>
-  `;
-
-  // Insert hamburger before the ul in second_nav_items
-  const secondNavUl = secondNavItems.querySelector("ul");
-  secondNavItems.insertBefore(hamburger, secondNavUl);
-
-  // Toggle menu on click
-  hamburger.addEventListener("click", function () {
-    this.classList.toggle("active");
-    secondNavUl.classList.toggle("active");
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener("click", function (event) {
-    if (!secondNavItems.contains(event.target)) {
-      hamburger.classList.remove("active");
-      secondNavUl.classList.remove("active");
-    }
-  });
-});
-
-//MOVING PICTURES SECTION PICTURE CHANGE
-let MVpicDiv = document.querySelector(".moving_pictures_picture_div");
-
-let movingPictures = document.querySelectorAll(".image-on-moving-pics-section");
-
-console.log(movingPictures);
+// moving pictures section
+const movingPictures = document.querySelectorAll(
+  ".image-on-moving-pics-section",
+);
 let counter = 0;
 
 setInterval(() => {
@@ -262,7 +195,4 @@ setInterval(() => {
   movingPictures[counter].classList.add("moving_pictures_picture_div_active");
 }, 3000);
 
-console.log(movingPictures.length);
-
-// Run on page load
 updateCartBadge();

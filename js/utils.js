@@ -15,12 +15,12 @@ export function createProductCard(product) {
     <div class="itembackgroundonitemcardSh"></div>
     <div class="loveicononfeatureditems"><i class="fa-regular fa-heart"></i></div>
     <div class="nameandpricedivonitemcardSh">
-      <p class="itemnameonitemcardSh">${product.title.slice(0, 18)}...</p>
+      <p class="itemnameonitemcardSh">${product.title.slice(0, 12)}...</p>
       <p class="itempriceonitemcardsh">$${product.price.toFixed(2)}</p>
     </div>
     <p class="itemdescriptiononitemcardSh">${product.description.slice(
       0,
-      60,
+      52,
     )}...</p>
     <div class="staricononitemcardSh">
       <i class="fa-solid fa-star"></i>
@@ -33,14 +33,23 @@ export function createProductCard(product) {
     <button class="addtocardbuttononitemcardSh">Add to Cart</button>
   `;
 
-  // Wishlist Toggle Event
-  div.addEventListener("click", (event) => {
-    if (event.target.classList.contains("fa-heart")) {
-      event.stopPropagation();
-      event.target.classList.toggle("fa-solid");
-      event.target.classList.toggle("fa-regular");
-      console.log("loveiconclicked");
-    }
+  // Wishlist icon click
+  const wishlistIcon = div.querySelector(".fa-heart");
+  const addtocartbutton = div.querySelector(".addtocardbuttononitemcardSh");
+
+  // Set initial icon state
+  initWishlistIcon(product, wishlistIcon);
+
+  // Handle click
+  wishlistIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleWishlist(product, wishlistIcon);
+  });
+
+  addtocartbutton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    addtoCart(product);
+    updateCartBadge();
   });
 
   return div;

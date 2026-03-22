@@ -18,6 +18,7 @@
       </div>
       <div class="numberofcartbadgeitems">0</div>
     </div>
+
     <header class="header_for_shophtml" id="pageheader">
       <div class="nav_bar_div_forShop first_nav_items">
         <ul>
@@ -27,6 +28,7 @@
           <li><a href="#accessoriessection">ACCESSORIES</a></li>
         </ul>
       </div>
+
       <div class="nav_bar_div nav_logo">
         <div class="clip_path1_div"></div>
         <p id="logo_text_shop">
@@ -40,20 +42,24 @@
           </a>
         </p>
       </div>
-      <div class="nav_bar_div_forShop second_nav_items">
-        <ul>
+
+      <div class="nav_bar_div_forShop second_nav_items" id="shopSecondNav">
+        <ul id="shopSecondNavUl">
           <li>
-            <a href="wishlist.html"
-              ><i class="fa-regular fa-star"></i>WISHLIST</a
-            >
+            <a href="wishlist.html">
+              <i class="fa-regular fa-star"></i>WISHLIST
+            </a>
           </li>
           <li>
-            <a href="cart.html"
-              ><i class="fa-solid fa-cart-shopping"></i>CART</a
-            >
+            <a href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>CART
+            </a>
           </li>
           <li class="buttons_on_nav">
-            <button class="sign-up-button-1 bg-black rounded-md">
+            <button
+              class="sign-up-button-1 bg-black rounded-md"
+              onclick="window.location.href = 'signup.html'"
+            >
               Sign Up/In
             </button>
             <button class="lock_icon">
@@ -66,17 +72,6 @@
 
     <main>
       <section id="pagebanner">
-        <!--  <div class="shophtmlbanner">
-          <p class="grabupto50">GRAB UP TO 50% OFF OF SELECTED ITEMS</p>
-          <button class="buynowonbanner">Buy Now</button>
-          <div class="shoeimageonbanner1">
-            <img
-              src="assets/pumashoe2-removebg-preview.png"
-              alt=""
-              width="250"
-            />
-          </div>
-        </div> -->
         <div class="updatedshopbanner">
           <img
             src="assets/newblueshopbanner2.jpg"
@@ -98,7 +93,8 @@
             href="#womensection"
             class="button1underbanner"
             id="blackFridaybutton"
-            >Black Friday
+          >
+            Black Friday
           </a>
         </div>
       </section>
@@ -140,6 +136,52 @@
         <a href="#pagebanner"><i class="fa-solid fa-arrow-up"></i></a>
       </div>
     </footer>
+
+    <div class="toastforwishlist1 font-exo">
+      <div class="correctnadtextintoastforwish">
+        <div class="correct_for_wishlist_toast">
+          <i class="fa-regular fa-circle-check"></i>
+        </div>
+        <div class="great_and_actual_wishlist_toast_text">
+          <div class="greatonwishlist_toast">Great!</div>
+          <div class="actualtoast_text-on-wishlist">
+            Item successfully added to wishlist
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toastforwishlistremove font-exo">
+      <div class="correctnadtextintoastforwish">
+        <div class="correct_for_wishlist_toast remove_icon_toast">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <div class="great_and_actual_wishlist_toast_text">
+          <div class="greatonwishlist_toast remove_title_toast">Removed!</div>
+          <div class="actualtoast_text-on-wishlist">
+            Item removed from wishlist
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toastforaddtocart font-exo">
+      <div class="correctnadtextintoastforwish">
+        <div class="correct_for_wishlist_toast">
+          <i class="fa-regular fa-circle-check"></i>
+        </div>
+        <div class="great_and_actual_wishlist_toast_text">
+          <div class="greatonwishlist_toast">Great!</div>
+          <div class="actualtoast_text-on-wishlist">
+            Item successfully added to Cart
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="js/products.js"></script>
   </body>
 </html>
