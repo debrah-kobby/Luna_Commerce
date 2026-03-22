@@ -1,9 +1,11 @@
-//SHOP PAGE JAVASCRIPT FILE
-import { createProductCard, fetchFeatured, fetchCategory } from "./utils.js";
+import {
+  createProductCard,
+  fetchFeatured,
+  fetchCategory,
+  saveToStorage,
+  updateCartBadge,
+} from "./utils.js";
 
-//========================================
-// DOM ELEMENTS - SECTION CONTAINERS
-//========================================
 const featuredContainer = document.querySelector(
   ".overalldivforfeaturesitemcards",
 );
@@ -21,83 +23,55 @@ const jacketsContainer = document.querySelector(
   ".overalldivforjacketsitemscardsSh",
 );
 
-//========================================
-// LOAD ALL PRODUCT SECTIONS
-//========================================
 fetchFeatured(featuredContainer, 6);
-
 fetchCategory("men's clothing", menContainer, 5);
 fetchCategory("women's clothing", womenContainer, 5);
 fetchCategory("jewelery", accessoriesContainer, 5);
 fetchCategory("electronics", shoesContainer, 5);
 fetchCategory("men's clothing", jacketsContainer, 5);
 
-//========================================
-// EVENT LISTENERS - WISHLIST, CART, PRODUCT DETAILS
-//========================================
-document.addEventListener("click", (e) => {
-  // Wishlist Toggle
-  if (e.target.classList.contains("fa-heart")) {
-    e.target.classList.toggle("fa-solid");
-    e.target.classList.toggle("fa-regular");
-  }
+// ── Hamburger menu ──────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  const secondNav = document.getElementById("shopSecondNav");
+  const secondNavUl = document.getElementById("shopSecondNavUl");
 
-  // Add to Cart
-  if (e.target.classList.contains("addtocardbuttononitemcardSh")) {
-    const cartproductCard = e.target.closest(".itemcardonshoppage");
-    const cartproduct = JSON.parse(cartproductCard.dataset.product); //TO GET THE SINGLE ITEM CLICKED ON
+  // Create and inject hamburger button
+  const hamburger = document.createElement("div");
+  hamburger.className = "shop-hamburger";
+  hamburger.innerHTML = `<span></span><span></span><span></span>`;
+  secondNav.insertBefore(hamburger, secondNavUl);
 
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || []; //GET FROM THE LOCALSTORAGE THE CART
-    cartItems.push(cartproduct);
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+  hamburger.addEventListener("click", function () {
+    this.classList.toggle("active");
+    secondNavUl.classList.toggle("active");
+  });
 
-    /* window.location.href = "/cart.html"; */
-  }
-
-  // Navigate to Product Details
-  if (e.target.classList.contains("featureditemsimage")) {
-    const productCard = e.target.closest(".itemcardonshoppage");
-    const product = productCard.dataset.product;
-    localStorage.setItem("selectedProduct", product);
-    window.location.href = "/product.html";
-  }
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!secondNav.contains(e.target)) {
+      hamburger.classList.remove("active");
+      secondNavUl.classList.remove("active");
+    }
+  });
 });
 
-let changingBanners = document.querySelectorAll(".bannerschange");
-console.log(changingBanners);
-
+// ── Banner auto-rotate ──────────────────────────────────────
+const changingBanners = document.querySelectorAll(".bannerschange");
 let counter = 0;
+
 setInterval(() => {
   changingBanners[counter].classList.remove("activebanner");
   counter = (counter + 1) % changingBanners.length;
   changingBanners[counter].classList.add("activebanner");
 }, 5000);
 
-/* const originalFetch = window.fetch;
-let activeFetches = 0;
-
-window.fetch = async (...args) => {
-  activeFetches++;
-  showLoader();
-
-  try {
-    return await originalFetch(...args);
-  } finally {
-    activeFetches--;
-    checkIfReady();
+// ── Navigate to product page on image click ─────────────────
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("featureditemsimage")) {
+    const productCard = e.target.closest(".itemcardonshoppage");
+    saveToStorage("selectedProduct", JSON.parse(productCard.dataset.product));
+    window.location.href = "/product.html";
   }
-};
-
-let pageLoaded = false;
-
-window.addEventListener("load", () => {
-  pageLoaded = true;
-  checkIfReady();
 });
-function checkIfReady() {
-  if (pageLoaded && activeFetches === 0) {
-    hideLoader();
-    document.body.classList.remove("loading");
-  }
-}
- */
+
+updateCartBadge();

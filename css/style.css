@@ -228,15 +228,10 @@ header {
 }
 /*CART BADGE - STICKY BOTTOM RIGHT*/
 .cartbadgediv {
-  /* This forces the element to the viewport regardless of parents */
   position: fixed;
   bottom: 30px;
   right: 30px;
-
-  /* High z-index to stay above everything */
   z-index: 99999;
-
-  /* Ensure it doesn't disappear */
   display: flex;
   visibility: visible;
   opacity: 1;
@@ -787,7 +782,7 @@ header {
   transform: translate(-50%, -50%);
   z-index: 9999;
   display: none;
-  color: white; /* ✅ Make sure this is the ONLY display property */
+  color: white;
 }
 
 .correctnadtextintoastforwish {
@@ -871,13 +866,13 @@ header {
   cursor: pointer;
   color: blue;
 }
-/* 
-   LUNA COMMERCE - MOBILE MEDIA QUERIES
-   */
 
-/* Tablets and Medium Screens (1024px and below) */
+/* ============================================================
+   MEDIA QUERIES
+   ============================================================ */
+
+/* ── Tablets and Medium Screens (1024px and below) ── */
 @media screen and (max-width: 1024px) {
-  /* Navigation adjustments */
   .nav_bar_div ul {
     gap: 1.5rem;
     font-size: 0.85rem;
@@ -887,12 +882,10 @@ header {
     width: clamp(250px, 35vw, 400px);
   }
 
-  /* Hero section */
   .hero_section {
     font-size: clamp(1.3rem, 3.5vw, 2rem);
   }
 
-  /* Hero bottom adjustments */
   .reviewsonhomepage {
     width: 100%;
     margin-top: -2rem;
@@ -906,12 +899,10 @@ header {
     width: clamp(180px, 22vw, 250px);
   }
 
-  /* Top picks */
   .first-top-pick-text {
     font-size: clamp(1.3rem, 2.5vw, 2rem);
   }
 
-  /* Moving words section */
   .square-background-on-moving-pictures-section {
     width: clamp(280px, 32vw, 400px);
     height: clamp(380px, 42vw, 500px);
@@ -922,7 +913,6 @@ header {
     font-size: clamp(1.8rem, 5vw, 5rem);
   }
 
-  /* New Arrivals - 2 items per row */
   .all-item-cards-on-main-page {
     gap: 2rem;
   }
@@ -932,9 +922,9 @@ header {
   }
 }
 
-/* Tablets (768px and below) */
+/* ── Tablets (768px and below) ── */
 @media screen and (max-width: 768px) {
-  /* ========== HEADER/NAVIGATION ========== */
+  /* ── HEADER / NAVIGATION ── */
   header {
     display: flex;
     flex-direction: row;
@@ -942,50 +932,52 @@ header {
     align-items: center;
     padding: 0.5rem 1rem;
     gap: 1rem;
+    height: auto;
+    min-height: 90px;
   }
 
-  /* Center the logo with clip path */
+  /* Logo – centred, bigger on tablet */
   .nav_logo {
     order: 2;
     margin: 0;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 250px;
-    height: 75px;
+    width: 280px;
+    height: 85px;
   }
 
   .logo_text img {
-    width: 200px;
+    width: 220px;
   }
 
-  /* Navigation container below logo - side by side */
   .first_nav_items {
     margin-right: 0;
     order: 1;
   }
+
   .nav_bar_div {
     margin-top: -1rem;
   }
+
   .first_nav_items ul {
     justify-content: center;
     gap: 0.8rem;
     flex-wrap: wrap;
-    margin-top: 2.5rem;
+    /* Push nav links slightly down so they don't crowd the logo clip-path */
+    margin-top: 2.8rem;
   }
 
-  /* Second nav with hamburger menu - BESIDE first nav */
   .second_nav_items {
     margin-left: 0;
     order: 3;
     position: relative;
   }
+
   .hamburger-menu {
     display: flex;
     margin-top: 1.5rem;
   }
-
-  /* Hamburger menu button - smaller size */
 
   .second_nav_items > ul {
     position: absolute;
@@ -1011,6 +1003,7 @@ header {
     visibility: visible;
     transform: translateY(0);
   }
+
   .second_nav_items > ul > li {
     width: 100%;
     text-align: center;
@@ -1020,13 +1013,7 @@ header {
     margin-top: 0;
   }
 
-  /* Wrapper for first nav and hamburger to be side by side */
-  header::after {
-    content: "";
-    display: none;
-  }
-
-  /* ========== HERO SECTION ========== */
+  /* ── HERO SECTION ── */
   .hero_section {
     margin-top: 2rem;
     font-size: clamp(1.5rem, 4vw, 2rem);
@@ -1043,8 +1030,7 @@ header {
     width: 150px;
   }
 
-  /* ========== HERO BOTTOM SECTION ========== */
-  /* ORDER: Model Image → Reviews → Video */
+  /* ── HERO BOTTOM ── */
   .hero-bottom-section {
     flex-direction: column;
     gap: 2rem;
@@ -1086,7 +1072,7 @@ header {
     width: clamp(250px, 70vw, 400px);
   }
 
-  /* ========== MOVING WORDS SECTION ========== */
+  /* ── MOVING WORDS ── */
   .moving-words1 {
     height: auto;
     padding: 3rem 1rem;
@@ -1112,7 +1098,7 @@ header {
     letter-spacing: clamp(0.3rem, 1vw, 0.8rem);
   }
 
-  /* ========== TOP PICKS SECTION ========== */
+  /* ── TOP PICKS ── */
   .top-picks-section {
     padding: 1rem 0.5rem;
   }
@@ -1142,7 +1128,7 @@ header {
     font-size: clamp(1rem, 4vw, 1.5rem);
   }
 
-  /* ========== NEW ARRIVALS - 2 ITEMS PER ROW ========== */
+  /* ── NEW ARRIVALS – 2 items per row ── */
   .newarrivalsonmainpage {
     padding: 1rem 0.5rem;
   }
@@ -1171,9 +1157,9 @@ header {
 
   .item-card-on-main-page {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
     height: auto;
-    min-height: 280px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1181,7 +1167,7 @@ header {
 
   .item-card-on-main-page img {
     width: 100%;
-    height: 180px;
+    height: 190px;
     object-fit: cover;
   }
 
@@ -1193,11 +1179,31 @@ header {
     width: 100%;
   }
 
+  /* Add-to-cart + wishlist on the same row, top of card */
+  .add-to-cart-on-main-page {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    right: auto;
+  }
+
+  .add-to-cart-on-main-page-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
   .category-and-wishlist {
     position: absolute;
-    left: auto;
     right: 5%;
-    top: 5%;
+    left: auto;
+    top: 2%;
+  }
+
+  /* Bigger wishlist icon so it's easy to tap */
+  .wishlist-icon-on-main-page-items {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
   }
 
   .category-on-main-page-items {
@@ -1206,12 +1212,7 @@ header {
     min-width: 70px;
   }
 
-  .wishlist-icon-on-main-page-items {
-    width: 28px;
-    height: 28px;
-  }
-
-  /* ========== SECOND PAGE ========== */
+  /* ── SECOND PAGE ── */
   .second-page {
     height: auto;
     padding: 2rem 1rem;
@@ -1242,34 +1243,76 @@ header {
     width: fit-content;
   }
 
-  /* ========== TOAST ========== */
-  .toastforwishlist1 {
-    width: 90%;
-    max-width: 350px;
+  /* ── TOASTS – always fully on screen ── */
+  .toastforwishlist1,
+  .toastforaddtocart,
+  .toastforwishlistremove,
+  .divAfterexists {
+    width: 88%;
+    max-width: 340px;
     left: 50%;
     top: 10%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    height: auto;
+    padding: 0.75rem;
+  }
+
+  .correct_for_wishlist_toast i,
+  .remove_icon_toast i {
+    font-size: 1.5rem;
+    width: 26px;
+    height: 26px;
+  }
+
+  .greatonwishlist_toast {
+    font-size: 0.9rem;
+  }
+
+  .actualtoast_text-on-wishlist {
+    font-size: 0.8rem;
   }
 }
 
-/* Small Mobile (480px and below) */
+/* ── Small Mobile – iPhone 13 / most Android flagships (480px and below) ── */
 @media screen and (max-width: 480px) {
-  /* ========== HEADER ========== */
+  /* ── HEADER ── */
+  header {
+    min-height: 85px;
+    padding: 0.4rem 0.8rem;
+    margin: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  /* Bigger logo – brand identity */
   .nav_logo {
-    width: 220px;
-    height: 70px;
+    width: 240px;
+    height: 100px;
+    margin-top: -1.6rem;
   }
 
   .logo_text img {
-    width: 150px;
+    width: 240px;
   }
 
-  .first_nav_items ul {
-    gap: 0.6rem;
-    font-size: 0.7rem;
+  /* Nav links – centred with breathing room from logo */
+  .first_nav_items {
+    margin: 0 auto;
+
+    margin-top: 0.4rem;
+    display: flex;
   }
+  .first_nav_items ul {
+    gap: 0.7rem;
+    font-size: 0.72rem;
+
+    justify-content: center;
+  }
+
   .hamburger-menu {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
+    margin-top: 1.2rem;
   }
 
   .hamburger-menu span {
@@ -1280,17 +1323,13 @@ header {
     min-width: 160px;
     padding: 0.8rem;
   }
-  .second_nav_items > ul {
-    min-width: 160px;
-    padding: 0.8rem;
-  }
 
   .sign-up-button-1 {
     padding: 0.5rem 0.8rem;
     font-size: 0.7rem;
   }
 
-  /* ========== FIRST PAGE ========== */
+  /* ── FIRST PAGE ── */
   .first_page {
     padding: 0.5rem;
     margin: 0.5rem;
@@ -1308,7 +1347,7 @@ header {
     font-size: 0.85rem;
   }
 
-  /* ========== HERO BOTTOM ========== */
+  /* ── HERO BOTTOM ── */
   .reviewsonhomepage img {
     width: 80px;
   }
@@ -1321,7 +1360,7 @@ header {
     width: clamp(180px, 70vw, 280px);
   }
 
-  /* ========== MOVING WORDS ========== */
+  /* ── MOVING WORDS ── */
   .square-background-on-moving-pictures-section {
     width: 90vw;
     height: 100vw;
@@ -1332,6 +1371,7 @@ header {
   .moving-words1 {
     margin-top: 15rem;
   }
+
   .brand-formoving-pics-section,
   .delivery-date-for-moving-pics-section,
   .season-on-moving-pics-section,
@@ -1345,7 +1385,7 @@ header {
     letter-spacing: clamp(0.2rem, 2vw, 0.5rem);
   }
 
-  /* ========== TOP PICKS ========== */
+  /* ── TOP PICKS ── */
   .first-image-div-on-top-picks {
     max-height: 300px;
   }
@@ -1363,7 +1403,7 @@ header {
     font-size: 0.7rem;
   }
 
-  /* ========== NEW ARRIVALS - 2 PER ROW ========== */
+  /* ── NEW ARRIVALS – 2 per row, sensible card size ── */
   .heading---newarrival,
   .heading---Allbrands {
     font-size: 0.8rem;
@@ -1379,12 +1419,42 @@ header {
   }
 
   .item-card-on-main-page {
-    max-width: 160px;
-    min-height: 240px;
+    max-width: 170px;
+    min-height: 260px;
   }
 
   .item-card-on-main-page img {
-    height: 150px;
+    height: 155px;
+  }
+
+  /* Add-to-cart + wishlist on same row */
+  .add-to-cart-on-main-page {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    right: auto;
+  }
+
+  .add-to-cart-on-main-page-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.77rem;
+    width: 90px;
+    height: 34px;
+    
+  }
+
+  .category-and-wishlist {
+    position: absolute;
+    right: 5%;
+    left: auto;
+    top: 2%;
+  }
+
+  /* Larger wishlist tap target */
+  .wishlist-icon-on-main-page-items {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
 
   .category-on-main-page-items {
@@ -1394,17 +1464,12 @@ header {
     padding: 0.25rem 0.4rem;
   }
 
-  .wishlist-icon-on-main-page-items {
-    width: 24px;
-    height: 24px;
-  }
-
   .name-and-price-and-arrow-on-main-page-items {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     padding: 0.4rem;
   }
 
-  /* ========== SECOND PAGE ========== */
+  /* ── SECOND PAGE ── */
   .toplookbookconnection h2 {
     font-size: clamp(1.2rem, 6vw, 1.8rem);
   }
@@ -1415,42 +1480,92 @@ header {
     font-size: 0.85rem;
   }
 
-  /* ========== FOOTER ========== */
+  /* ── FOOTER ── */
   .main_page_copyright {
     font-size: 0.85rem;
   }
 
-  /* ========== TOAST ========== */
-  .toastforwishlist1 {
-    width: 95%;
+  /* ── TOASTS – compact but readable ── */
+  .toastforwishlist1,
+  .toastforaddtocart,
+  .toastforwishlistremove,
+  .divAfterexists {
+    width: 92%;
+    max-width: 310px;
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%, -50%);
     height: auto;
-    padding: 0.8rem;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.82rem;
   }
 
   .correctnadtextintoastforwish {
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
-  .correct_for_wishlist_toast i {
-    font-size: 1.5rem;
-    width: 25px;
-    height: 25px;
+  .correct_for_wishlist_toast i,
+  .remove_icon_toast i {
+    font-size: 1.4rem;
+    width: 24px;
+    height: 24px;
+  }
+
+  .greatonwishlist_toast {
+    font-size: 0.85rem;
   }
 
   .actualtoast_text-on-wishlist {
-    font-size: 0.85rem;
+    font-size: 0.76rem;
   }
 }
 
-/* Extra Small Mobile (360px and below) */
-@media screen and (max-width: 360px) {
+/* ── Android mid-range: Galaxy A series, Pixel 6a, Moto G (390–430px) ── */
+@media screen and (min-width: 390px) and (max-width: 430px) {
   .nav_logo {
-    width: 180px;
-    height: 65px;
+    width: 250px;
+    height: 82px;
   }
 
   .logo_text img {
-    width: 100px;
+    width: 190px;
+  }
+
+  .first_nav_items ul {
+    font-size: 0.73rem;
+    gap: 0.75rem;
+    margin-top: 2.6rem;
+  }
+
+  .item-card-on-main-page {
+    max-width: 175px;
+    min-height: 265px;
+  }
+
+  .item-card-on-main-page img {
+    height: 158px;
+  }
+
+  .wishlist-icon-on-main-page-items {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* ── Extra Small Mobile (360px and below) ── */
+@media screen and (max-width: 360px) {
+  header {
+    min-height: 80px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .nav_logo {
+    width: 200px;
+    height: 70px;
+  }
+
+  .logo_text img {
+    width: 150px;
   }
 
   .hamburger-menu {
@@ -1465,6 +1580,7 @@ header {
   .first_nav_items ul {
     font-size: 0.65rem;
     gap: 0.5rem;
+    margin-top: 2.3rem;
   }
 
   .hero_section {
@@ -1483,11 +1599,32 @@ header {
   }
 
   .item-card-on-main-page {
-    max-width: 140px;
-    min-height: 220px;
+    max-width: 145px;
+    min-height: 230px;
   }
 
   .item-card-on-main-page img {
-    height: 130px;
+    height: 135px;
+  }
+
+  /* Toasts still fully visible on tiny screens */
+  .toastforwishlist1,
+  .toastforaddtocart,
+  .toastforwishlistremove,
+  .divAfterexists {
+    width: 95%;
+    max-width: 290px;
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%, -50%);
+    padding: 0.6rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .correct_for_wishlist_toast i,
+  .remove_icon_toast i {
+    font-size: 1.2rem;
+    width: 22px;
+    height: 22px;
   }
 }

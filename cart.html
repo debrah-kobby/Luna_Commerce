@@ -18,17 +18,7 @@
       </div>
       <div class="numberofcartbadgeitems">0</div>
     </div>
-    <!--  <div class="loader-container">
-      <lottie-player
-        src="assets/LunaBigger.json"
-        background="transparent"
-        speed="1"
-        style="width: 220px; height: 220px"
-        loop
-        autoplay
-      >
-      </lottie-player>
-    </div> -->
+
     <article class="first_page" style="height: auto">
       <header>
         <div class="nav_bar_div first_nav_items" style="width: auto">
@@ -52,21 +42,19 @@
             </a>
           </p>
         </div>
-        <div class="nav_bar_div second_nav_items">
-          <ul>
+        <div class="nav_bar_div second_nav_items" id="cartSecondNav">
+          <ul id="cartSecondNavUl">
             <li>
               <a href="wishlist.html"
                 ><i class="fa-regular fa-star"></i>WISHLIST</a
               >
             </li>
             <li>
-              <a href="index.html"
-                >HOME<!-- <i class="fa-solid fa-cart-shopping"></i>CART --></a
-              >
+              <a href="index.html">HOME</a>
             </li>
             <li class="buttons_on_nav">
-              <button class="sign-up-button-1">Sign Up/In</button
-              ><button class="lock_icon">
+              <button class="sign-up-button-1">Sign Up/In</button>
+              <button class="lock_icon">
                 <i class="fa-solid fa-lock"></i>
               </button>
             </li>
@@ -74,6 +62,7 @@
         </div>
       </header>
     </article>
+
     <main>
       <article class="sidebysidecartboxes">
         <div class="leftcartbox">
@@ -91,65 +80,8 @@
             <p class="priceofitemoncarts">Price</p>
           </div>
           <div class="itemscontaineroncart"></div>
-          <!-- <div class="itemsdetailsitselfoncart">
-            <div class="itemitselfoncart">
-              <div class="itemimageoncart">
-                <img
-                  src="assets/firstairpodpros-removebg-preview.png"
-                  alt=""
-                  width="90"
-                />
-              </div>
-              <div class="itemnameandcategoryoncart">
-                <div class="itemnameoncart">Apple Airpods Pro</div>
-                <div class="itemcaegoryoncart">White</div>
-              </div>
-            </div>
-            <div class="incrementordecrementofitemoncart">
-              <div class="decrementoncart">
-                <i class="fa-solid fa-minus"></i>
-              </div>
-
-              <p class="numberofquantityoncart">0</p>
-              <div class="incrementoncart">
-                <i class="fa-solid fa-plus"></i>
-              </div>
-            </div>
-            <div class="priceofitemoncart">$99</div>
-            <div class="removecartitembutton">
-              <i class="fa-solid fa-xmark"></i>
-            </div>
-          </div> -->
-          <!-- <div class="itemsdetailsitselfoncart">
-            <div class="itemitselfoncart">
-              <div class="itemimageoncart">
-                <img
-                  src="assets/secondairpodsmax-removebg-preview.png"
-                  alt=""
-                  width="90"
-                />
-              </div>
-              <div class="itemnameandcategoryoncart">
-                <div class="itemnameoncart">Apple Airpods Pro</div>
-                <div class="itemcaegoryoncart">Black</div>
-              </div>
-            </div>
-            <div class="incrementordecrementofitemoncart">
-              <div class="decrementoncart">
-                <i class="fa-solid fa-minus"></i>
-              </div>
-
-              <p class="numberofquantityoncart">1</p>
-              <div class="incrementoncart">
-                <i class="fa-solid fa-plus"></i>
-              </div>
-            </div>
-            <div class="priceofitemoncart">$99</div>
-            <div class="removecartitembutton">
-              <i class="fa-solid fa-xmark"></i>
-            </div>
-          </div> -->
         </div>
+
         <div class="rightcartbox">
           <div class="promocodeinputandbtn">
             <div class="promocodeheading">Promo Code</div>
@@ -160,26 +92,88 @@
             />
             <button class="applypormocodebutton">Apply</button>
           </div>
-          <div class="name-price-on-cart-right-box">
-            <div class="name-on-right-card-box">Name</div>
-            <div class="price-on-right-cart-box">Price</div>
+          <div class="promoresult_and_close_logo">
+            <div class="promoResultText"></div>
+            <div class="removepromocodeicon"><i class="fa-solid fa-x"></i></div>
           </div>
+
           <div class="total-checkout-in-right-cart-box">
             <div class="total-right-cart-box">
-              <strong>Total</strong> <span>.....</span>
+              <strong>Total &nbsp;</strong>
+              <span class="totalpriceofallcart">.....</span>
             </div>
             <div class="checkout-button-right-cart-box">
-              <button>Checkout</button>
+              <button id="checkoutBtn">Checkout</button>
             </div>
           </div>
         </div>
       </article>
     </main>
+
     <footer>
       <div class="main_page_copyright_cart font-exo">
         &copy;LuNa Idustries 2025
       </div>
     </footer>
+
+    <!-- ── CHECKOUT MODAL ── -->
+    <div class="checkout-modal-overlay" id="checkoutModal">
+      <div class="checkout-modal-box">
+        <div class="checkout-modal-header">
+          <div class="checkout-modal-logo">
+            <i class="fa-solid fa-bag-shopping"></i>
+          </div>
+          <div class="checkout-modal-title">Order Summary</div>
+          <button class="checkout-modal-close" id="closeCheckoutModal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="checkout-modal-divider"></div>
+
+        <div class="checkout-modal-items" id="checkoutModalItems">
+          <!-- populated by JS -->
+        </div>
+
+        <div class="checkout-modal-divider"></div>
+
+        <div class="checkout-modal-totals">
+          <div class="checkout-modal-row">
+            <span>Subtotal</span>
+            <span id="modalSubtotal">$0.00</span>
+          </div>
+          <div
+            class="checkout-modal-row checkout-modal-discount"
+            id="modalDiscountRow"
+          >
+            <span>Discount (10%)</span>
+            <span id="modalDiscount">-$0.00</span>
+          </div>
+          <div class="checkout-modal-row checkout-modal-total-row">
+            <span>Total</span>
+            <span id="modalTotal">$0.00</span>
+          </div>
+        </div>
+
+        <div class="checkout-modal-divider"></div>
+
+        <div class="checkout-modal-note">
+          <i class="fa-solid fa-circle-info"></i>
+          &nbsp;This is a demo checkout. No payment will be processed.
+        </div>
+
+        <button class="checkout-modal-confirm-btn" id="confirmOrderBtn">
+          <i class="fa-solid fa-check"></i>&nbsp; Confirm Order
+        </button>
+
+        <!-- Order confirmed state (hidden by default) -->
+        <div class="checkout-modal-confirmed" id="orderConfirmed">
+          <i class="fa-solid fa-circle-check"></i>
+          <p>Order Placed!</p>
+          <span>Thanks for shopping with Luna.</span>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="js/cart.js"></script>
   </body>

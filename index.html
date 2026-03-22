@@ -18,6 +18,7 @@
       </div>
       <div class="numberofcartbadgeitems">0</div>
     </div>
+
     <div class="loader-container flex-center loader-container-hidden">
       <lottie-player
         src="assets/LunaBigger.json"
@@ -28,6 +29,7 @@
         autoplay
       ></lottie-player>
     </div>
+
     <header class="mainpageheader">
       <div class="nav_bar_div first_nav_items">
         <ul>
@@ -53,17 +55,20 @@
       <div class="nav_bar_div second_nav_items">
         <ul>
           <li>
-            <a href="wishlist.html"
-              ><i class="fa-regular fa-star"></i>WISHLIST</a
-            >
+            <a href="wishlist.html">
+              <i class="fa-regular fa-star"></i>WISHLIST
+            </a>
           </li>
           <li>
-            <a href="cart.html"
-              ><i class="fa-solid fa-cart-shopping"></i>CART</a
-            >
+            <a href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>CART
+            </a>
           </li>
           <li class="buttons_on_nav">
-            <button class="sign-up-button-1 bg-black rounded-md">
+            <button
+              class="sign-up-button-1 bg-black rounded-md"
+              onclick="window.location.href = 'signup.html'"
+            >
               Sign Up/In
             </button>
             <button class="lock_icon">
@@ -152,11 +157,6 @@
               alt=""
               class="image-on-moving-pics-section absolute"
             />
-            <!-- <img
-              src="assets/M1forMV-removebg-preview.png"
-              alt=""
-              class="image-on-moving-pics-section absolute"
-            /> -->
           </div>
         </div>
       </section>
@@ -263,11 +263,13 @@
         </div>
       </section>
     </main>
+
     <footer>
       <div class="main_page_copyright font-exo flex-center">
         &copy;LuNa Idustries 2025
       </div>
     </footer>
+
     <div class="toastforwishlist1 font-exo">
       <div class="correctnadtextintoastforwish">
         <div class="correct_for_wishlist_toast">
@@ -282,6 +284,7 @@
         </div>
       </div>
     </div>
+
     <div class="toastforwishlistremove font-exo">
       <div class="correctnadtextintoastforwish">
         <div class="correct_for_wishlist_toast remove_icon_toast">
@@ -296,6 +299,7 @@
         </div>
       </div>
     </div>
+
     <div class="toastforaddtocart font-exo">
       <div class="correctnadtextintoastforwish">
         <div class="correct_for_wishlist_toast">
@@ -310,11 +314,8 @@
         </div>
       </div>
     </div>
+
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
-
-<!-- <div class="category-on-main-page-items">
-          <p>${truncatedCategory}</p>
-        </div> -->

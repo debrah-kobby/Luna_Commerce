@@ -8,10 +8,22 @@ body.loading main {
 }
 
 .header_for_shophtml {
-  padding: 0.5rem;
-  margin-top: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  margin-bottom: 0;
   background: rgba(158, 158, 158, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  height: 80px;
+  gap: 1rem;
 }
+
 .nav_bar_div_forShop ul {
   display: flex;
   gap: 2rem;
@@ -68,6 +80,55 @@ body.loading main {
   cursor: pointer;
 }
 
+/* Logo image anchored inside nav_logo clip-path shape */
+#logo_text_shop {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#logo_text_shop img {
+  display: block;
+}
+
+/* ── Hamburger – hidden on desktop ── */
+.shop-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.shop-hamburger span {
+  width: 22px;
+  height: 2.5px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.shop-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.shop-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.shop-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ── Banner ── */
 .updatedshopbanner {
   position: relative;
   width: 100%;
@@ -91,8 +152,8 @@ body.loading main {
 .activebanner {
   opacity: 1;
 }
+
 .shophtmlbanner {
-  /* background-color: rgb(160, 160, 160); */
   background: linear-gradient(
     to left,
     rgb(54, 54, 54),
@@ -111,12 +172,12 @@ body.loading main {
   position: absolute;
   font-size: 2rem;
   font-family: "Exo 2", sans-serif;
-
   font-style: normal;
   width: 350px;
   top: 15%;
   left: 5%;
 }
+
 .buynowonbanner {
   position: absolute;
   padding: 0.4rem;
@@ -129,28 +190,25 @@ body.loading main {
   border-radius: 15px;
   border: none;
   font-family: "Exo 2", sans-serif;
-
   font-style: normal;
 }
+
 .shoeimageonbanner1 {
   position: absolute;
   left: 70%;
   top: 1%;
 }
+
 .shoeimageonbanner1 img {
   border-radius: 15px;
 }
-/*CART BADGE - STICKY BOTTOM RIGHT*/
+
+/* ── Cart badge ── */
 .cartbadgediv {
-  /* This forces the element to the viewport regardless of parents */
   position: fixed;
   bottom: 30px;
   right: 30px;
-
-  /* High z-index to stay above everything */
   z-index: 99999;
-
-  /* Ensure it doesn't disappear */
   display: flex;
   visibility: visible;
   opacity: 1;
@@ -197,18 +255,11 @@ body.loading main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* ── Buttons under banner – always on one line ── */
 .buttonsundershopbanner {
   margin: 1rem;
 }
-#logo_text_shop img {
-  transform: translate(-50%, -50%);
-  color: #000000;
-  font-size: 1.1rem;
-  font-family: "Poppins", sans-serif;
-  position: absolute;
-  left: 50%;
-  top: 35%;
-}
+
 .buttonsundershopbanner a.button1underbanner {
   display: inline-flex;
   justify-content: center;
@@ -220,7 +271,6 @@ body.loading main {
   width: 120px;
   border-radius: 15px;
   font-family: "Exo 2", sans-serif;
-
   font-style: normal;
   text-align: center;
   cursor: pointer;
@@ -230,6 +280,7 @@ body.loading main {
 .buttonsundershopbanner a.button1underbanner:hover {
   background-color: rgb(170, 170, 170);
 }
+
 #blackFridaybutton {
   background-color: blue;
   color: black;
@@ -237,16 +288,18 @@ body.loading main {
   animation: blackFridayBounce 1s ease-in-out infinite;
   width: 140px;
 }
+
 @keyframes blackFridayBounce {
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-20px);
   }
 }
+
+/* ── Section wrappers ── */
 .featureditemssection,
 .trendingsectioninshop,
 .menssectiononshophtml,
@@ -259,6 +312,7 @@ body.loading main {
   flex-direction: column;
   flex-wrap: wrap;
 }
+
 .featured-items-title p,
 .trendingsectiontitleonSh,
 .mensectiontititleSh,
@@ -267,20 +321,23 @@ body.loading main {
 .jacketsectiontititleSh,
 .shoesectiontititleSh {
   font-family: "Exo 2", sans-serif;
-
   font-style: normal;
   font-size: 1.4rem;
 }
+
+/* ── Item cards ── */
 .itembackgroundonitemcardSh {
   width: 220px;
   height: 200px;
   background-color: rgb(233, 233, 233);
   border-radius: 7px;
 }
+
 .itemcardonshoppage {
   position: relative;
   width: 220px;
 }
+
 .itemcardonshoppage img {
   position: absolute;
   top: 3%;
@@ -289,15 +346,18 @@ body.loading main {
   width: 130px;
   cursor: pointer;
 }
+
+/* Bigger wishlist/love icon */
 .loveicononfeatureditems {
   position: absolute;
   top: 2%;
   left: 83%;
 }
+
 .loveicononfeatureditems i {
-  font-size: 1.1rem;
-  width: 30px;
-  height: 30px;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
   background: rgba(0, 0, 255, 0.144);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -309,27 +369,33 @@ body.loading main {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .nameandpricedivonitemcardSh {
   display: flex;
   font-family: "Poppins", sans-serif;
   font-size: 0.9rem;
 }
+
 .itempriceonitemcardsh {
   display: flex;
   margin-left: auto;
 }
+
 .itemnameonitemcardSh {
   margin-right: auto;
 }
+
 .itemdescriptiononitemcardSh {
   font-family: "Poppins", sans-serif;
   font-size: 0.7rem;
 }
+
 .staricononitemcardSh {
   display: flex;
   flex-wrap: wrap;
   margin-top: 0.2rem;
 }
+
 .staricononitemcardSh p {
   font-family: "Poppins", sans-serif;
   margin-left: 0.1rem;
@@ -338,6 +404,7 @@ body.loading main {
   align-items: center;
   font-size: 0.8rem;
 }
+
 .staricononitemcardSh i {
   display: flex;
   justify-content: center;
@@ -345,24 +412,28 @@ body.loading main {
   color: blue;
 }
 
+/* Slightly bigger Add to Cart button */
 .addtocardbuttononitemcardSh {
-  padding: 0.3rem;
-  border: 1px solid black;
+  padding: 0.4rem 0.6rem;
   border-radius: 15px;
-  width: 120px;
+  width: 130px;
   background: rgba(255, 255, 255, 0.15);
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  font-family: "Exo 2", sans-serif;
 }
+
 .addtocardbuttononitemcardSh:hover {
   scale: 1.05;
   transition: scale 0.3s ease-in-out;
   cursor: pointer;
 }
 
+/* ── Card container rows ── */
 .overalldivforfeaturesitemcards,
 .trendingitemsonShoveralldiv,
 .overalldivformensitemscardsSh,
@@ -377,12 +448,14 @@ body.loading main {
   padding: 1rem;
 }
 
+/* ── Footer ── */
 .main_page_copyright {
   display: flex;
   justify-content: center;
   font-family: "Exo 2", sans-serif;
   gap: 1rem;
 }
+
 .main_page_copyright i {
   display: flex;
   width: 30px;
@@ -396,19 +469,19 @@ body.loading main {
   transition: transform 0.3s ease-in-out;
   animation: blackFridayBounce 0.3s ease-in-out infinite;
 }
+
 .main_page_copyright i:hover {
   cursor: pointer;
   transform: scale(1.07);
   box-shadow: 0 4px 10px black;
 }
 
-/* ===================================
-   SHOP HTML - MOBILE MEDIA QUERIES
-   =================================== */
+/* ============================================================
+   SHOP CSS – MOBILE MEDIA QUERIES
+   ============================================================ */
 
-/* Tablets and Medium Screens (1024px and below) */
+/* ── Tablets / Medium (1024px and below) ── */
 @media screen and (max-width: 1024px) {
-  /* Banner adjustments */
   .shophtmlbanner {
     height: 200px;
   }
@@ -426,7 +499,6 @@ body.loading main {
     width: 220px;
   }
 
-  /* Item cards - 3 per row */
   .overalldivforfeaturesitemcards,
   .trendingitemsonShoveralldiv,
   .overalldivformensitemscardsSh,
@@ -438,59 +510,107 @@ body.loading main {
   }
 }
 
-/* Tablets (768px and below) */
+/* ── Tablets (768px and below) ── */
 @media screen and (max-width: 768px) {
-  /* ========== HEADER ========== */
+  /* Header: first-nav (left) | logo (auto margins centre it) | hamburger (right) */
   .header_for_shophtml {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0.5rem;
+    height: auto;
+    min-height: 90px;
+    padding: 0.5rem 1rem;
+    position: relative;
   }
 
-  /* Logo centered at top */
+  /* Logo - position:relative is critical so the absolute #logo_text_shop stays inside clip_path1_div */
   .nav_logo {
-    order: 1;
-    width: 280px;
-    height: 80px;
-    margin: 0;
+    order: 2;
+    position: relative;
+    width: 270px;
+    height: 82px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+
+  /* Restate the logo image anchor so it sits correctly on top of the clip-path shape */
+  #logo_text_shop {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   #logo_text_shop img {
-    width: 140px;
+    width: 160px;
+    display: block;
   }
 
-  /* First nav items below logo */
+  /* First nav – left side, horizontal row */
   .nav_bar_div_forShop.first_nav_items {
-    order: 2;
+    order: 1;
     margin: 0;
   }
 
   .nav_bar_div_forShop.first_nav_items ul {
-    justify-content: center;
-    gap: 1.2rem;
+    flex-direction: row;
     flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0;
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+    justify-content: center;
   }
 
-  /* Second nav items beside first nav */
+  /* Second nav – right side, hamburger triggers dropdown */
   .nav_bar_div_forShop.second_nav_items {
-    order: 2;
+    order: 3;
     margin: 0;
-    margin-left: 1rem;
+    position: relative;
   }
 
-  .nav_bar_div_forShop.second_nav_items ul {
+  /* Show hamburger */
+  .shop-hamburger {
+    display: flex;
+    margin-top: 1.5rem;
+  }
+
+  /* Dropdown menu */
+  #shopSecondNavUl {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
     gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
   }
 
-  .nav_bar_div_forShop li {
-    font-size: 0.85rem;
+  #shopSecondNavUl.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  /* ========== BANNER ========== */
+  #shopSecondNavUl li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttons_on_nav {
+    margin-top: 0;
+  }
+
+  /* Banner */
   .shophtmlbanner {
     height: 180px;
     margin: 0.5rem;
@@ -517,20 +637,24 @@ body.loading main {
     width: 180px;
   }
 
-  /* Buttons under banner */
+  /* Banner buttons – still one row, scale down slightly */
   .buttonsundershopbanner {
-    display: flex;
-    justify-content: center;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    margin: 0.75rem;
   }
 
   .buttonsundershopbanner a.button1underbanner {
-    width: 70px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.5rem;
+    min-width: 62px;
+    border-radius: 12px;
   }
 
-  /* ========== SECTIONS ========== */
+  #blackFridaybutton {
+    min-width: 98px;
+  }
+
+  /* Section titles */
   .featured-items-title p,
   .trendingsectiontitleonSh,
   .mensectiontititleSh,
@@ -542,7 +666,7 @@ body.loading main {
     text-align: center;
   }
 
-  /* ========== ITEM CARDS - 2 PER ROW ========== */
+  /* Item cards – 2 per row */
   .overalldivforfeaturesitemcards,
   .trendingitemsonShoveralldiv,
   .overalldivformensitemscardsSh,
@@ -559,16 +683,16 @@ body.loading main {
 
   .itemcardonshoppage {
     width: 100%;
-    max-width: 200px;
+    max-width: 210px;
   }
 
   .itembackgroundonitemcardSh {
     width: 100%;
-    height: 180px;
+    height: 185px;
   }
 
   .itemcardonshoppage img {
-    width: 110px;
+    width: 115px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -578,10 +702,11 @@ body.loading main {
     right: 5%;
   }
 
+  /* Bigger tap target on tablet too */
   .loveicononfeatureditems i {
-    width: 28px;
-    height: 28px;
-    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
   }
 
   .nameandpricedivonitemcardSh {
@@ -593,33 +718,57 @@ body.loading main {
   }
 
   .addtocardbuttononitemcardSh {
-    width: 110px;
-    font-size: 0.85rem;
+    width: 120px;
+    font-size: 0.88rem;
+    padding: 0.4rem 0.5rem;
   }
 }
 
-/* Small Mobile (480px and below) */
+/* ── Small Mobile – iPhone 13, most Android (480px and below) ── */
 @media screen and (max-width: 480px) {
-  /* ========== HEADER ========== */
+  .header_for_shophtml {
+    min-height: 85px;
+    padding: 0.4rem 0.8rem;
+    margin: 0.5rem;
+    margin-bottom: 0;
+  }
+
   .nav_logo {
-    width: 220px;
-    height: 70px;
+    width: 240px;
+    height: 78px;
+  }
+
+  #logo_text_shop {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   #logo_text_shop img {
-    width: 120px;
-  }
-
-  .nav_bar_div_forShop li {
-    font-size: 0.75rem;
+    width: 148px;
+    display: block;
   }
 
   .nav_bar_div_forShop.first_nav_items ul {
-    gap: 0.8rem;
+    font-size: 0.72rem;
+    gap: 0.4rem;
+    margin-top: 2.3rem;
   }
 
-  .nav_bar_div_forShop.second_nav_items ul {
-    gap: 0.8rem;
+  .shop-hamburger {
+    width: 36px;
+    height: 36px;
+    margin-top: 1.2rem;
+  }
+
+  .shop-hamburger span {
+    width: 20px;
+  }
+
+  #shopSecondNavUl {
+    min-width: 165px;
+    padding: 0.9rem;
   }
 
   .sign-up-button-1 {
@@ -627,11 +776,7 @@ body.loading main {
     font-size: 0.7rem;
   }
 
-  .lock_icon {
-    padding: 0.3rem;
-  }
-
-  /* ========== BANNER ========== */
+  /* Banner */
   .shophtmlbanner {
     height: 150px;
     margin: 0.5rem;
@@ -661,14 +806,24 @@ body.loading main {
     width: 150px;
   }
 
-  /* Buttons under banner */
-  .buttonsundershopbanner a.button1underbanner {
-    width: 65px;
-    font-size: 0.75rem;
-    padding: 0.3rem;
+  /* Banner buttons – one row, smaller but still readable */
+  .buttonsundershopbanner {
+    gap: 0.4rem;
+    margin: 0.6rem 0.5rem;
   }
 
-  /* ========== SECTIONS ========== */
+  .buttonsundershopbanner a.button1underbanner {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.4rem;
+    min-width: 55px;
+    border-radius: 10px;
+  }
+
+  #blackFridaybutton {
+    min-width: 88px;
+  }
+
+  /* Sections */
   .featured-items-title p,
   .trendingsectiontitleonSh,
   .mensectiontititleSh,
@@ -689,7 +844,7 @@ body.loading main {
     padding: 0.5rem;
   }
 
-  /* ========== ITEM CARDS - 2 PER ROW ========== */
+  /* Item cards */
   .overalldivforfeaturesitemcards,
   .trendingitemsonShoveralldiv,
   .overalldivformensitemscardsSh,
@@ -702,21 +857,21 @@ body.loading main {
   }
 
   .itemcardonshoppage {
-    max-width: 170px;
+    max-width: 175px;
   }
 
   .itembackgroundonitemcardSh {
-    height: 160px;
+    height: 162px;
   }
 
   .itemcardonshoppage img {
-    width: 100px;
+    width: 105px;
   }
 
   .loveicononfeatureditems i {
-    width: 26px;
-    height: 26px;
-    font-size: 0.9rem;
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
 
   .nameandpricedivonitemcardSh {
@@ -724,7 +879,7 @@ body.loading main {
   }
 
   .itemdescriptiononitemcardSh {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
   }
 
   .staricononitemcardSh i {
@@ -732,43 +887,110 @@ body.loading main {
   }
 
   .staricononitemcardSh p {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
   }
 
   .addtocardbuttononitemcardSh {
-    width: 100px;
-    font-size: 0.8rem;
-    padding: 0.25rem;
+    width: 110px;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.45rem;
   }
 
-  /* ========== FOOTER ========== */
   .main_page_copyright {
     font-size: 0.85rem;
     padding: 1rem;
   }
 }
 
-/* Extra Small Mobile (360px and below) */
-@media screen and (max-width: 360px) {
-  /* ========== HEADER ========== */
+/* ── Android mid-range: Galaxy A, Pixel 6a, Moto G (390–430px) ── */
+@media screen and (min-width: 390px) and (max-width: 430px) {
   .nav_logo {
-    width: 200px;
-    height: 65px;
+    width: 248px;
+    height: 80px;
+  }
+
+  #logo_text_shop {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   #logo_text_shop img {
-    width: 100px;
-  }
-
-  .nav_bar_div_forShop li {
-    font-size: 0.7rem;
+    width: 152px;
+    display: block;
   }
 
   .nav_bar_div_forShop.first_nav_items ul {
-    gap: 0.6rem;
+    font-size: 0.73rem;
   }
 
-  /* ========== BANNER ========== */
+  .buttonsundershopbanner a.button1underbanner {
+    font-size: 0.74rem;
+    min-width: 58px;
+  }
+
+  #blackFridaybutton {
+    min-width: 92px;
+  }
+
+  .itemcardonshoppage {
+    max-width: 178px;
+  }
+
+  .itembackgroundonitemcardSh {
+    height: 165px;
+  }
+
+  .loveicononfeatureditems i {
+    width: 35px;
+    height: 35px;
+  }
+
+  .addtocardbuttononitemcardSh {
+    width: 112px;
+  }
+}
+
+/* ── Extra Small Mobile (360px and below) ── */
+@media screen and (max-width: 360px) {
+  .header_for_shophtml {
+    min-height: 80px;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .nav_logo {
+    width: 205px;
+    height: 68px;
+  }
+
+  #logo_text_shop {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #logo_text_shop img {
+    width: 120px;
+    display: block;
+  }
+
+  .shop-hamburger {
+    width: 32px;
+    height: 32px;
+  }
+
+  .shop-hamburger span {
+    width: 18px;
+  }
+
+  .nav_bar_div_forShop.first_nav_items ul {
+    font-size: 0.65rem;
+    gap: 0.35rem;
+  }
+
+  /* Banner */
   .shophtmlbanner {
     height: 130px;
   }
@@ -791,22 +1013,29 @@ body.loading main {
     width: 130px;
   }
 
+  /* Banner buttons – smallest size, still one row */
   .buttonsundershopbanner a.button1underbanner {
-    width: 60px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.35rem;
+    min-width: 50px;
+    border-radius: 8px;
   }
 
-  /* ========== ITEM CARDS - 2 PER ROW ========== */
+  #blackFridaybutton {
+    min-width: 82px;
+  }
+
+  /* Item cards */
   .itemcardonshoppage {
-    max-width: 150px;
+    max-width: 152px;
   }
 
   .itembackgroundonitemcardSh {
-    height: 140px;
+    height: 142px;
   }
 
   .itemcardonshoppage img {
-    width: 90px;
+    width: 92px;
   }
 
   .nameandpricedivonitemcardSh {
@@ -814,7 +1043,14 @@ body.loading main {
   }
 
   .addtocardbuttononitemcardSh {
-    width: 90px;
-    font-size: 0.75rem;
+    width: 98px;
+    font-size: 0.76rem;
+    padding: 0.28rem 0.4rem;
+  }
+
+  .loveicononfeatureditems i {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
   }
 }

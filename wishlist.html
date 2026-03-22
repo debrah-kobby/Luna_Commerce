@@ -18,6 +18,7 @@
       </div>
       <div class="numberofcartbadgeitems">0</div>
     </div>
+
     <div class="loader-container flex-center loader-container-hidden">
       <lottie-player
         src="assets/LunaBigger.json"
@@ -28,6 +29,7 @@
         autoplay
       ></lottie-player>
     </div>
+
     <header class="mainpageheader">
       <div class="nav_bar_div first_nav_items">
         <ul>
@@ -50,18 +52,21 @@
         </p>
       </div>
 
-      <div class="nav_bar_div second_nav_items">
-        <ul>
+      <div class="nav_bar_div second_nav_items" id="wishlistSecondNav">
+        <ul id="wishlistSecondNavUl">
           <li>
             <a href="index.html">HOME</a>
           </li>
           <li>
-            <a href="cart.html"
-              ><i class="fa-solid fa-cart-shopping"></i>CART</a
-            >
+            <a href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>CART
+            </a>
           </li>
           <li class="buttons_on_nav">
-            <button class="sign-up-button-1 bg-black rounded-md">
+            <button
+              class="sign-up-button-1 bg-black rounded-md"
+              onclick="window.location.href = 'signup.html'"
+            >
               Sign Up/In
             </button>
             <button class="lock_icon">
@@ -71,6 +76,7 @@
         </ul>
       </div>
     </header>
+
     <main>
       <div class="overall_div_for_wishlist_page">
         <div class="div_for_wishlist_side_profile">
@@ -84,13 +90,20 @@
             <div class="div_stars_on_wishlist_profile font-exo">
               <div class="numberofstarswishlistprofile">5.0</div>
               <div class="stars_on_wishlist_profile">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
-                ><i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
               </div>
             </div>
             <div class="addinfobutononwishlistprofile">
-              <button class="font-exo">SignUp</button>
+              <button
+                class="font-exo"
+                onclick="window.location.href = 'signup.html'"
+              >
+                SignUp
+              </button>
             </div>
           </div>
           <hr />
@@ -116,6 +129,7 @@
             <button>Shop</button>
           </div>
         </div>
+
         <div class="div_fior_wishlist_right_section">
           <div class="wishlist_heading_on_right_Side">
             <p class="font-exo">Wishlist</p>
@@ -124,10 +138,11 @@
               id="wishlist_category"
               class="font-exo"
             >
-              <option value="All" selected>All</option>
-              <option value="shoes">Shoes</option>
-              <option value="shoes">Shoes</option>
-              <option value="shoes">Shoes</option>
+              <option value="all" selected>All</option>
+              <option value="mens">Men's</option>
+              <option value="womens">Women's</option>
+              <option value="accessories">Accessories</option>
+              <option value="electronics">Electronics</option>
             </select>
             <div class="clear_wishlist_div">
               <i class="fa-solid fa-x"></i> &nbsp; Clear Wishlist
@@ -138,44 +153,7 @@
         </div>
       </div>
     </main>
+
     <script src="js/wishlist.js" type="module"></script>
   </body>
 </html>
-
-<!-- <div class="container_for_wishlist_item_image">
-  <img src="${product.image}" alt="" />
-</div>
-<div class="name_and_date_on_wishlist_items font-exo">
-  <p class="name_on_wishlist_item">${product.name}</p>
-  <p class="date_on_wishlist_item"></p>
-</div>
-<div class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item">
-  <div class="price_on_wishlist_item font-exo">${product.price}</div>
-  <div class="wish_and_delete_on_wishlist_item">
-    <div class="wish_on_wishlist_item">
-      <i class="fa-solid fa-heart"></i>
-    </div>
-    <div class="delete_on_wishlist_item">
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="container_for_wishlist_item_image">
-  <img src="${product.image}" alt="" width="70" height="70" />
-</div>
-<div class="name_and_date_on_wishlist_items font-exo">
-  <p class="name_on_wishlist_item">${product.title}</p>
-  <p class="date_on_wishlist_item"></p>
-</div>
-<div class="price_and_heart_icon_on_wishlist_icon_on_wishlist_item">
-  <div class="price_on_wishlist_item font-exo">${product.price}</div>
-  <div class="wish_and_delete_on_wishlist_item">
-    <div class="wish_on_wishlist_item">
-      <i class="fa-solid fa-heart"></i>
-    </div>
-    <div class="delete_on_wishlist_item">
-      <i class="fa-solid fa-trash"></i>
-    </div>
-  </div>
-</div>
- -->

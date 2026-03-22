@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,17 +12,6 @@
     <title>Luna Commerce</title>
   </head>
   <body class="product_html_body_tag_for_positioning">
-    <!--  <div class="loader-container">
-      <lottie-player
-        src="assets/LunaBigger.json"
-        background="transparent"
-        speed="1"
-        style="width: 220px; height: 220px"
-        loop
-        autoplay
-      >
-      </lottie-player>
-    </div> -->
     <article class="first_page" style="height: auto">
       <header>
         <div class="nav_bar_div first_nav_items">
@@ -46,17 +35,22 @@
             </a>
           </p>
         </div>
-        <div class="nav_bar_div second_nav_items">
-          <ul>
+        <div class="nav_bar_div second_nav_items" id="productSecondNav">
+          <ul id="productSecondNavUl">
             <li><a href="#seasonalsection">SEASONAL</a></li>
             <li>
-              <a href="cart.html"
-                ><i class="fa-solid fa-cart-shopping"></i>CART</a
-              >
+              <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>CART
+              </a>
             </li>
             <li class="buttons_on_nav">
-              <button class="sign-up-button-1">Sign Up/In</button
-              ><button class="lock_icon">
+              <button
+                class="sign-up-button-1"
+                onclick="window.location.href = 'signup.html'"
+              >
+                Sign Up/In
+              </button>
+              <button class="lock_icon">
                 <i class="fa-solid fa-lock"></i>
               </button>
             </li>
@@ -64,6 +58,7 @@
         </div>
       </header>
     </article>
+
     <main>
       <section>
         <div class="imageandsidenotesonPRP">
@@ -98,12 +93,13 @@
             <div class="smallhrrulleronPRP"></div>
             <div class="incdec-and-aitemsleft-PRP">
               <div class="incrementofnumberofitemsonPRP">
-                <span class="decrementonPRP" style="cursor: pointer"
-                  ><i class="fa-solid fa-minus"></i></span
-                ><span class="increordecrenumber">0</span>
-                <span class="incrememntonPRP" style="cursor: pointer"
-                  ><i class="fa-solid fa-plus"></i
-                ></span>
+                <span class="decrementonPRP" style="cursor: pointer">
+                  <i class="fa-solid fa-minus"></i>
+                </span>
+                <span class="increordecrenumber">0</span>
+                <span class="incrememntonPRP" style="cursor: pointer">
+                  <i class="fa-solid fa-plus"></i>
+                </span>
               </div>
               <div class="itemsleftonPRP">
                 Only &nbsp;<span class="nuberofitemsleftonPRP">12</span
@@ -126,6 +122,7 @@
           </div>
         </div>
       </section>
+
       <section class="similar-items-umaylikeon-PRP">
         <div class="headingforsimilartemsonPRP">
           <p>Similar Items You may like</p>
@@ -134,6 +131,7 @@
           <div class="overalldivforfeaturesitemcards"></div>
         </section>
       </section>
+
       <section
         class="modal_for_details_of_return_policy"
         id="overlay_for_modal"
@@ -143,7 +141,6 @@
             <div class="return_policy_heading">
               <i class="fa-solid fa-car"></i>Return Policy
             </div>
-
             <div
               class="clost-button-for-return-policy-modal"
               style="cursor: pointer"
@@ -207,6 +204,58 @@
         </div>
       </section>
     </main>
+
+    <div class="toastforwishlist1 font-exo">
+      <div class="correctnadtextintoastforwish">
+        <div class="correct_for_wishlist_toast">
+          <i class="fa-regular fa-circle-check"></i>
+        </div>
+        <div class="great_and_actual_wishlist_toast_text">
+          <div class="greatonwishlist_toast">Great!</div>
+          <div class="actualtoast_text-on-wishlist">
+            Item successfully added to wishlist
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toastforwishlistremove font-exo">
+      <div class="correctnadtextintoastforwish">
+        <div class="correct_for_wishlist_toast remove_icon_toast">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <div class="great_and_actual_wishlist_toast_text">
+          <div class="greatonwishlist_toast remove_title_toast">Removed!</div>
+          <div class="actualtoast_text-on-wishlist">
+            Item removed from wishlist
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toastforaddtocart font-exo">
+      <div class="correctnadtextintoastforwish">
+        <div class="correct_for_wishlist_toast">
+          <i class="fa-regular fa-circle-check"></i>
+        </div>
+        <div class="great_and_actual_wishlist_toast_text">
+          <div class="greatonwishlist_toast">Great!</div>
+          <div class="actualtoast_text-on-wishlist">
+            Item successfully added to Cart
+            <i class="fa-regular fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartbadgediv">
+      <div class="cartbadgeitself">
+        <i class="fa-solid fa-cart-arrow-down"></i>
+      </div>
+      <div class="numberofcartbadgeitems">0</div>
+    </div>
 
     <script type="module" src="js/product.js"></script>
   </body>
